@@ -1,0 +1,10 @@
+{
+  "name": "our-scene",
+  "version": "1.0.0",
+  "description": "Our Scene Monorepo",
+  "main": "index.js",
+  "repository": "https://github.com/our-scene/our-scene.git",
+  "author": "oursceneapp@gmail.com",
+  "license": "MIT",
+  "private": true
+}
