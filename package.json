@@ -6,5 +6,9 @@
   "repository": "https://github.com/our-scene/our-scene.git",
   "author": "oursceneapp@gmail.com",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
 }
