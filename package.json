@@ -7,6 +7,9 @@
   "author": "oursceneapp@gmail.com",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "build": "cd ./apps/web && yarn run build"
+  },
   "workspaces": {
     "packages": [
       "apps/*",
