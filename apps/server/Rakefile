@@ -4,3 +4,9 @@
 require_relative "config/application"
 
 Rails.application.load_tasks
+
+Rake::Task[].clear
+  namespace :assets do
+    task 'precompile' do puts 'Not procompiling assets...'
+  end
+end
