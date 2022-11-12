@@ -7,8 +7,13 @@
   "author": "oursceneapp@gmail.com",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ]
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@rails/**"
+    ]
+  }
 }
