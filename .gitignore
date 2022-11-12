@@ -2,6 +2,7 @@ node_modules
 
 # Ignore all logfiles and tempfiles.
 /log
+**/tmp/*
 */tmp/*
 !/log/.keep
 !/tmp/.keep
