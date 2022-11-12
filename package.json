@@ -8,7 +8,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "cd ./apps/web && yarn run build"
+    "build": "cd ./apps/web && yarn run build",
+    "start": "cd ./apps/web && yarn run start"
   },
   "workspaces": {
     "packages": [
