@@ -1,8 +1,11 @@
+import { signIn } from "next-auth/react";
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const handleSignIn = () => {
+    signIn();
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -11,7 +14,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>This shit works</main>
+      <main className={styles.main}>
+        <div>This shit works</div>
+        <button onClick={handleSignIn}>Sign In</button>
+      </main>
     </div>
   );
 }
