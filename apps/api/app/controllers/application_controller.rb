@@ -20,6 +20,7 @@ class ApplicationController < ActionController::API
 
   private
 
+  # TODO: it might be better rails to do this in the users controller?
   def find_or_create_user_from_decoded_token(decoded_token)
     family_name = decoded_token[:family_name]
     given_name = decoded_token[:given_name]
