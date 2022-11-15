@@ -1,0 +1,1493 @@
+Started POST "/" for 127.0.0.1 at 2022-11-14 22:03:41 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:10:46 -0500
+  
+AbstractController::ActionNotFound (The action 'authenticate' could not be found for AuthenticationController
+Did you mean?  autheticate):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:12:23 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 16502)
+
+
+  
+NameError (uninitialized constant AuthenticationController::User):
+  
+app/controllers/authentication_controller.rb:5:in `authenticate'
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:15:21 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 264)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:16:13 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 200 OK in 2ms (Views: 0.3ms | Allocations: 162)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:16:32 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | Allocations: 162)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:23:37 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 162)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:45:24 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 200 OK in 4ms (Views: 1.0ms | Allocations: 159)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:46:34 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 159)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:47:18 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 159)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:48:25 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 200 OK in 2ms (Views: 1.1ms | Allocations: 159)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:49:53 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | Allocations: 159)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:51:48 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 200 OK in 2ms (Views: 0.2ms | Allocations: 159)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:53:58 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 200 OK in 2ms (Views: 0.5ms | Allocations: 159)
+
+
+Started POST "/authenticate" for 127.0.0.1 at 2022-11-14 22:54:44 -0500
+Processing by AuthenticationController#authenticate as HTML
+Completed 200 OK in 2ms (Views: 0.8ms | Allocations: 159)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:12:58 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:13:00 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:13:02 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:13:06 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:13:59 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:14:00 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:14:02 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:14:06 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:16:31 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:16:33 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:16:35 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:16:39 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:17:07 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:17:08 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:17:10 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:17:14 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:17:36 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:17:37 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:17:40 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:17:44 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/" for ::1 at 2022-11-15 14:34:37 -0500
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20221115193344_create_users.rb
+
+
+):
+  
+activerecord (7.0.4) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2022-11-15 14:34:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20221115193344_create_users.rb
+
+
+):
+  
+activerecord (7.0.4) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221115193344)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221115193344"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-15 19:35:13.260064"], ["updated_at", "2022-11-15 19:35:13.260064"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-11-15 14:35:30 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ApplicationController#not_found as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 163)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-11-15 14:35:30 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/users" for ::1 at 2022-11-15 14:37:48 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | Allocations: 167)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:37:49 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | Allocations: 121)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:37:51 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | Allocations: 121)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:37:55 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | Allocations: 121)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:38:59 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | Allocations: 158)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:39:00 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | Allocations: 124)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:39:02 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | Allocations: 124)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:39:06 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | Allocations: 124)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:39:46 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | Allocations: 143)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:39:47 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | Allocations: 109)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:39:49 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | Allocations: 109)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:39:53 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | Allocations: 109)
+
+
+Started GET "/users" for ::1 at 2022-11-15 14:53:23 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 967)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 14:53:25 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 14:53:26 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 14:53:28 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 14:53:32 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 14:58:46 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 5ms (Allocations: 926)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 14:58:47 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 630)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 14:58:49 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 630)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 14:58:53 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 630)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 14:59:45 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 5ms (Allocations: 2332)
+
+
+  
+NameError (undefined local variable or method `e' for #<UsersController:0x000000000106d0>):
+  
+app/controllers/application_controller.rb:32:in `rescue in decode'
+app/controllers/application_controller.rb:27:in `decode'
+app/controllers/application_controller.rb:8:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 14:59:46 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 5ms (Allocations: 2300)
+
+
+  
+NameError (undefined local variable or method `e' for #<UsersController:0x000000000108b0>):
+  
+app/controllers/application_controller.rb:32:in `rescue in decode'
+app/controllers/application_controller.rb:27:in `decode'
+app/controllers/application_controller.rb:8:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 14:59:48 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 2300)
+
+
+  
+NameError (undefined local variable or method `e' for #<UsersController:0x00000000010a68>):
+  
+app/controllers/application_controller.rb:32:in `rescue in decode'
+app/controllers/application_controller.rb:27:in `decode'
+app/controllers/application_controller.rb:8:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 14:59:52 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 5ms (Allocations: 2300)
+
+
+  
+NameError (undefined local variable or method `e' for #<UsersController:0x00000000010c20>):
+  
+app/controllers/application_controller.rb:32:in `rescue in decode'
+app/controllers/application_controller.rb:27:in `decode'
+app/controllers/application_controller.rb:8:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:00:02 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 921)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:9:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:00:03 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 624)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:9:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:00:05 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 624)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:9:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:00:09 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (Allocations: 624)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:9:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:10:24 -0500
+  
+LoadError (cannot load such file -- googleauth):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users" for ::1 at 2022-11-15 15:10:26 -0500
+  
+LoadError (cannot load such file -- googleauth):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users" for ::1 at 2022-11-15 15:10:28 -0500
+  
+LoadError (cannot load such file -- googleauth):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users" for ::1 at 2022-11-15 15:10:32 -0500
+  
+LoadError (cannot load such file -- googleauth):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users" for ::1 at 2022-11-15 15:10:42 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 11ms (Allocations: 2490)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:10:43 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 9ms (Allocations: 2193)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:10:45 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 8ms (Allocations: 2193)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:10:50 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 14ms (Allocations: 2193)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:12:41 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 1690)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:12:42 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 1375)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:12:45 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1375)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:12:49 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1375)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:13:12 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 1194)
+
+
+  
+NoMethodError (undefined method `[]' for Google::Auth::IDTokens:Module):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:13:13 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 896)
+
+
+  
+NoMethodError (undefined method `[]' for Google::Auth::IDTokens:Module):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:13:15 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 896)
+
+
+  
+NoMethodError (undefined method `[]' for Google::Auth::IDTokens:Module):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:13:19 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 896)
+
+
+  
+NoMethodError (undefined method `[]' for Google::Auth::IDTokens:Module):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:13:51 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 13ms (Allocations: 1689)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:13:52 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 10ms (Allocations: 1391)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:13:54 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 14ms (Allocations: 1391)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:13:58 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 10ms (Allocations: 1391)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:14:10 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 572)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:14:12 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 0ms (Allocations: 276)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:14:14 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 0ms (Allocations: 276)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:14:18 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 0ms (Allocations: 275)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:15:26 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 123ms (Allocations: 2157)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:15:27 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 690)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:15:29 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 690)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:15:33 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 690)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:15:51 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 690)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:10:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:15:58 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 36ms (Views: 0.5ms | ActiveRecord: 1.4ms | Allocations: 3405)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:15:59 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 793)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:16:01 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 793)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:16:05 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 793)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:16:35 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 785)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:16:36 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 785)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:16:38 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 785)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:16:39 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 785)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:16:40 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 785)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:16:41 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 785)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:16:42 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 785)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:16:43 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 785)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:16:45 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 785)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:16:49 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 785)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:25:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 141ms (Views: 1.4ms | ActiveRecord: 0.5ms | Allocations: 15115)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:28:54 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", nil], ["email", "oursceneapp@gmail.com"], ["created_at", "2022-11-15 20:28:54.780203"], ["updated_at", "2022-11-15 20:28:54.780203"]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 32ms (Views: 1.7ms | ActiveRecord: 3.7ms | Allocations: 19358)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:28:55 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mUser Load (17.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 32ms (Views: 12.3ms | ActiveRecord: 17.7ms | Allocations: 1392)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:28:56 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1397)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:29:06 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 17ms (Views: 3.5ms | ActiveRecord: 0.5ms | Allocations: 1391)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:29:07 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1373)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:29:27 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1373)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:29:39 -0500
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 106)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:29:55 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 10ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 1373)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:32:16 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 14ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 2742)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:32:16 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 11ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 758)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:32:17 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 24ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 758)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:32:19 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 23ms (Views: 3.3ms | ActiveRecord: 0.3ms | Allocations: 758)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:32:23 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 758)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:32:54 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 15ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 2729)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:32:55 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 792)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:32:57 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 792)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:33:02 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 792)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:33:45 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 10ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 2729)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:33:47 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 762)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:33:49 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 762)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:33:53 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:17:in `find_or_create_user_from_google_token'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 762)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:34:51 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (Allocations: 242)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/application_controller.rb:29:in `[]'
+app/controllers/application_controller.rb:29:in `decode_google_id_token'
+app/controllers/application_controller.rb:16:in `find_or_create_user_from_google_token'
+app/controllers/application_controller.rb:8:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:34:52 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 0ms (Allocations: 216)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/application_controller.rb:29:in `[]'
+app/controllers/application_controller.rb:29:in `decode_google_id_token'
+app/controllers/application_controller.rb:16:in `find_or_create_user_from_google_token'
+app/controllers/application_controller.rb:8:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:34:54 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 0ms (Allocations: 216)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/application_controller.rb:29:in `[]'
+app/controllers/application_controller.rb:29:in `decode_google_id_token'
+app/controllers/application_controller.rb:16:in `find_or_create_user_from_google_token'
+app/controllers/application_controller.rb:8:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:34:58 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 0ms (Allocations: 216)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/application_controller.rb:29:in `[]'
+app/controllers/application_controller.rb:29:in `decode_google_id_token'
+app/controllers/application_controller.rb:16:in `find_or_create_user_from_google_token'
+app/controllers/application_controller.rb:8:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:36:03 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 12ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 2742)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:36:05 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 757)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:36:07 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 757)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:36:11 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 757)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:36:12 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 757)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:36:13 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 757)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:36:15 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 11ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 757)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:36:57 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 140ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 18009)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:36:58 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 780)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:37:00 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 780)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:37:04 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 780)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:37:20 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 2776)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:37:21 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 798)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:37:23 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 798)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:37:27 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 798)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:37:40 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 64ms (Views: 3.0ms | ActiveRecord: 1.6ms | Allocations: 16107)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:38:51 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 1009)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:38:53 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 712)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:38:54 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (Allocations: 707)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:38:57 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 712)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:39:01 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 712)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/application_controller.rb:11:in `authorize'
+Started GET "/users" for ::1 at 2022-11-15 15:39:09 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 13ms (Views: 1.8ms | ActiveRecord: 1.3ms | Allocations: 3430)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:40:08 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 25ms (Views: 1.7ms | ActiveRecord: 4.2ms | Allocations: 3383)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:40:09 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 1381)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:40:15 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 29ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 1381)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:41:49 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 11ms (Views: 1.4ms | ActiveRecord: 1.3ms | Allocations: 3384)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:41:51 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1407)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/users" for ::1 at 2022-11-15 15:44:58 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["name", "Our Scene"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `find_or_create_user_from_decoded_token'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/application_controller.rb:28:in `find_or_create_user_from_decoded_token'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Our Scene"], ["email", "oursceneapp@gmail.com"], ["created_at", "2022-11-15 20:44:58.639046"], ["updated_at", "2022-11-15 20:44:58.639046"]]
+  ↳ app/controllers/application_controller.rb:28:in `find_or_create_user_from_decoded_token'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/application_controller.rb:28:in `find_or_create_user_from_decoded_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 20ms (Views: 1.5ms | ActiveRecord: 2.7ms | Allocations: 5729)
+
+
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/users" for ::1 at 2022-11-15 15:45:14 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["name", "Our Scene"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `find_or_create_user_from_decoded_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 13ms (Views: 1.7ms | ActiveRecord: 0.7ms | Allocations: 1941)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:48:52 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["name", "Our Scene"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `find_or_create_user_from_decoded_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 23ms (Views: 4.0ms | ActiveRecord: 0.6ms | Allocations: 1947)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:48:53 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["name", "Our Scene"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `find_or_create_user_from_decoded_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 43ms (Views: 1.5ms | ActiveRecord: 0.6ms | Allocations: 1947)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:49:08 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["name", "Our Scene"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `find_or_create_user_from_decoded_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 15ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1941)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:49:17 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["name", "Our Scene"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `find_or_create_user_from_decoded_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 29ms (Views: 5.4ms | ActiveRecord: 1.1ms | Allocations: 1941)
+
+
+Started GET "/users" for ::1 at 2022-11-15 15:49:19 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? AND "users"."name" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["name", "Our Scene"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `find_or_create_user_from_decoded_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "oursceneapp@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `authorize'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 8ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1941)
+
+

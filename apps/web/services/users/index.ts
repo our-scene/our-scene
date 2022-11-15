@@ -17,7 +17,6 @@ export const useGetUsersWithAuth = (
   session: Session | null,
   options: UseQueryOptions<GetUsers.Response> = {}
 ) => {
-  console.log("idToken: ", session?.idToken);
   const { path: queryKey, fn } = generateGetUsersWithAuth(session);
   return useQuery<GetUsers.Response>([queryKey], fn, options);
 };
