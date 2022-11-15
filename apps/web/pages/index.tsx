@@ -1,11 +1,17 @@
 import Head from "next/head";
 import { useUserAuthContext } from "../components/contexts/UserAuthContextProvider";
+import { useGetUsersWithAuth } from "../services/users";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const userAuthContext = useUserAuthContext();
+  const { session, signOut } = userAuthContext;
 
-  const { signOut } = userAuthContext;
+  const getUsersQuery = useGetUsersWithAuth(session, {
+    enabled: Boolean(session),
+  });
+
+  console.log("getUsersQuery: ", getUsersQuery);
 
   const handleSignOut = () => {
     signOut();
