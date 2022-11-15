@@ -22,7 +22,6 @@ export const UserAuthContextProvider = ({
   children: React.ReactNode;
 }) => {
   const router = useRouter();
-  console.log({ router });
   const { data: session, status: sessionStatus } = useSession();
 
   useEffect(() => {

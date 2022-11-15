@@ -1,8 +1,8 @@
 import axios from "axios";
 import { Session } from "next-auth";
 
+// TODO: consolidate this w/ react-query hooks in shared package
 export const createAxiosClientWithAuth = (session: Session | null) => {
-  console.log({ session });
   const idToken = session?.idToken;
   const headers = {
     Authorization: `Bearer ${idToken}`,
