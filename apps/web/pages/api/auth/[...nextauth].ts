@@ -61,12 +61,10 @@ export const authOptions: NextAuthOptions = {
 
       // Return previous token if the access token has not expired yet
       if (Date.now() < (token.idTokenExpires as number)) {
-        console.log("not refreshing token");
         return token;
       }
 
       // Access token has expired, try to update it
-      console.log("refreshing token");
       return refreshAccessToken(token);
     },
     async session({ session, token }) {
