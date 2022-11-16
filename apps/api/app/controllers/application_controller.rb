@@ -20,13 +20,9 @@ class ApplicationController < ActionController::API
 
   private
 
-  # TODO: it might be better rails to do this in the users controller?
   def find_or_create_user_from_decoded_token(decoded_token)
-    family_name = decoded_token[:family_name]
-    given_name = decoded_token[:given_name]
     email = decoded_token[:email]
-    name = "#{given_name} #{family_name}"
-    @user = User.find_or_create_by(email: email, name: name)
+    @user = User.find_or_create_by(email: email)
   end
 
   def decode_google_id_token(token)
