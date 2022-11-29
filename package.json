@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "--": "these are not for development, see package.json in web",
     "build": "cd ./apps/web && yarn run build",
     "start": "cd ./apps/web && yarn run start"
   },
