@@ -1,4 +1,4 @@
-// import "../styles/globals.css";
+import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Exo } from "@next/font/google";
 import "tailwindcss/tailwind.css";
@@ -18,10 +18,6 @@ export default function App({ Component, pageProps }: AppProps) {
       <style jsx global>{`
         html {
           font-family: ${exo.style.fontFamily};
-          height: 100%;
-        }
-        .main {
-          min-height: 100vh;
         }
       `}</style>
       <Component {...pageProps} />
