@@ -19,7 +19,7 @@ export default function Home() {
   // };
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-items-center">
       <Head>
         <title>Our Scene Coming Soon</title>
         <meta name="description" content="Our Scene coming soon page" />
