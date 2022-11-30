@@ -18,6 +18,8 @@ export default function Home() {
   //   signOut();
   // };
 
+  // header, footer and body: coming soon component  
+
   return (
     <div>
       <Head>
@@ -25,13 +27,8 @@ export default function Home() {
         <meta name="description" content="Our Scene coming soon page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="main bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-yellow-100 via-amber-200 to-blue-700">
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="items-center font-black">Our Scene</h1>
-        </div>
-        <div className="flex flex-col items-center w-full justify-items-center">
-          <ComingSoon />
-        </div>
+      <div className="main bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-yellow-100 via-amber-200 to-blue-700 h-full">
+        <ComingSoon />
       </div>
     </div>
   );
