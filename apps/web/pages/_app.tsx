@@ -4,8 +4,9 @@ import { Exo } from "@next/font/google";
 import "tailwindcss/tailwind.css";
 
 // If loading a variable font, you don't need to specify the font weight
+// another comment 
 const exo = Exo({
-  weight: "900",
+  // weight: "900",
   // style: 'black',
   subsets: ["latin"],
 });
