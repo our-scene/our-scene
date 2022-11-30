@@ -1,25 +1,19 @@
-import "../styles/globals.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { SessionProvider } from "next-auth/react";
-import { UserAuthContextProvider } from "../components/contexts/UserAuthContextProvider";
+import { Exo } from "@next/font/google";
+import "tailwindcss/tailwind.css";
 
-const queryClient = new QueryClient();
-
-queryClient.setDefaultOptions({
-  queries: {
-    useErrorBoundary: true,
-  },
+// If loading a variable font, you don't need to specify the font weight
+const exo = Exo({
+  weight: "900",
+  // style: 'black',
+  subsets: ["latin"],
 });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <SessionProvider session={pageProps.session}>
-      <UserAuthContextProvider>
-        <QueryClientProvider client={queryClient}>
-          <Component {...pageProps} />
-        </QueryClientProvider>
-      </UserAuthContextProvider>
-    </SessionProvider>
+    <main className={exo.className}>
+      <Component {...pageProps} />
+    </main>
   );
 }
