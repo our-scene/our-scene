@@ -27,7 +27,7 @@ export default function Home() {
         <meta name="description" content="Our Scene coming soon page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="main bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-yellow-100 via-amber-200 to-blue-700 h-full">
+      <div className="main bg-[#14213d] h-full">
         <ComingSoon />
       </div>
     </div>
