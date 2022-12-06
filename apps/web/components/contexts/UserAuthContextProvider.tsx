@@ -24,6 +24,7 @@ export const UserAuthContextProvider = ({
   const router = useRouter();
   const { data: session, status: sessionStatus } = useSession();
 
+
   useEffect(() => {
     if (router.pathname === "/login" && sessionStatus === "authenticated") {
       router.push("/");

@@ -1,13 +1,13 @@
 import Head from "next/head";
-// import { useUserAuthContext } from "../components/contexts/UserAuthContextProvider";
+import { useUserAuthContext } from "../components/contexts/UserAuthContextProvider";
 
 
 const Login = () => {
-  // const { signIn } = useUserAuthContext();
+  const { signIn } = useUserAuthContext();
 
-  // const handleSignIn = () => {
-  //   signIn();
-  // };
+  const handleSignIn = () => {
+    signIn();
+  };
 
   return (
     <div >
@@ -19,7 +19,7 @@ const Login = () => {
 
       <main>
         <div>Would you like to sign in please?</div>
-        <button >Sign In</button>
+        <button onClick={handleSignIn}>Sign In</button>
       </main>
     </div>
   );
