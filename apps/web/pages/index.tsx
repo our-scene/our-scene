@@ -4,6 +4,7 @@ import Image from "next/image";
 import ComingSoon from "../components/ComingSoon";
 // import styles from "../styles/Home.module.css";
 // import 'tailwindcss/tailwind.css';
+import { useGetAllEventsQuery, useQueryClient } from '@our-scene/api-hooks'
 
 
 export default function Home() {
@@ -20,6 +21,12 @@ export default function Home() {
   // };
 
   // header, footer and body: coming soon component  
+  const getAllEventsQuery = useGetAllEventsQuery()
+  const queryClient = useQueryClient()
+
+  console.log('1: ', queryClient)
+
+  console.log(getAllEventsQuery)
 
   return (
     <div className="flex flex-col items-center justify-items-center">
