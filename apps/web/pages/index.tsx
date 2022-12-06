@@ -1,3 +1,4 @@
+import { useGetAllEventsQuery } from "@our-scene/api-hooks";
 import Head from "next/head";
 import ComingSoon from "../components/ComingSoon";
 import { useUserAuthContext } from "../components/contexts/UserAuthContextProvider";
@@ -20,7 +21,8 @@ export default function Home() {
   };
 
   // header, footer and body: coming soon component  
-  // const getAllEventsQuery = useGetAllEventsQuery()
+  const getAllEventsQuery = useGetAllEventsQuery(session?.idToken, { enabled: Boolean(session?.idToken) })
+  console.log('Events: ', getAllEventsQuery)
   // const queryClient = useQueryClient()
 
   return (
