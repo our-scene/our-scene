@@ -1,0 +1,15 @@
+{
+  "name": "@our-scene/api-hooks",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "author": "Our Scene",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@tanstack/react-query": "^4.19.1",
+    "axios": "1.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  }
+}
