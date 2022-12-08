@@ -7,7 +7,7 @@ const EVENTS_ROOT_PATH = '/events';
 
 
 const generateGetAllEventsWithAuth = (idToken: string) => {
-  console.log({ idToken })
+  
   const client = createAxiosClientWithAuth(idToken);
   const fn = async () => {
     const { data } = await client.get<GetAllEvents.Response>(EVENTS_ROOT_PATH);
