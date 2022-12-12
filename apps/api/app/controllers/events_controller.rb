@@ -1,3 +1,5 @@
+require "time"
+
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show update destroy]
 
@@ -11,6 +13,14 @@ class EventsController < ApplicationController
   # GET /events/1
   def show
     render json: @event
+  end
+
+    # GET /events/upcoming
+  def upcoming
+    today = Time.today.beginning_of_day
+    @events = Event.where('start > ?', today)
+  
+    render json: @events
   end
 
   # POST /events
