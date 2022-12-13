@@ -1,4 +1,4 @@
-import { useGetAllEventsQuery } from "@our-scene/api-hooks";
+import { useGetAllEventsQuery, useGetUpcomingEventsQuery } from "@our-scene/api-hooks";
 import Head from "next/head";
 import ComingSoon from "../components/ComingSoon";
 import { useUserAuthContext } from "../components/contexts/UserAuthContextProvider";
@@ -14,7 +14,7 @@ export default function Home() {
     enabled: Boolean(session),
     refetchOnMount: "always",
   });
-  console.log(getUsersQuery)
+  // console.log(getQuery)
 
   const handleSignOut = () => {
     signOut();
@@ -22,7 +22,8 @@ export default function Home() {
 
   // header, footer and body: coming soon component  
   const getAllEventsQuery = useGetAllEventsQuery(session?.idToken, { enabled: Boolean(session?.idToken) })
-  console.log('Events: ', getAllEventsQuery)
+  const getUpcomingEventsQuery = useGetUpcomingEventsQuery(session?.idToken, { enabled: Boolean(session?.idToken) });
+  console.log('Upcoming Events: ', getUpcomingEventsQuery)
   // const queryClient = useQueryClient()
 
   return (
