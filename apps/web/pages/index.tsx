@@ -22,8 +22,8 @@ export default function Home() {
 
   // header, footer and body: coming soon component  
   const getAllEventsQuery = useGetAllEventsQuery(session?.idToken, { enabled: Boolean(session?.idToken) })
-  const getUpcomingEventsQuery = useGetUpcomingEventsQuery(session?.idToken, { enabled: Boolean(session?.idToken) });
-  console.log('Upcoming Events: ', getUpcomingEventsQuery)
+  // const getUpcomingEventsQuery = useGetUpcomingEventsQuery(session?.idToken, { enabled: Boolean(session?.idToken) });
+  // console.log('Upcoming Events: ', getUpcomingEventsQuery)
   // const queryClient = useQueryClient()
 
   return (
