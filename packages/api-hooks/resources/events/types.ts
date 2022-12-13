@@ -15,6 +15,14 @@ export declare namespace GetAllEvents {
   type Error = {} // TODO
 }
 
+export declare namespace GetUpcomingEvents {
+  type Request = {}
+
+  type Response = Event[]
+
+  type Error = {} // TODO
+}
+
 // export declare namespace GetWorkoutResponse {
 //   type Request = {
 //     pathParams: {

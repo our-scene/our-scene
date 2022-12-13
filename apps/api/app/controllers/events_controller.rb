@@ -10,17 +10,19 @@ class EventsController < ApplicationController
     render json: @events
   end
 
+  # GET /events/upcoming
+  def upcoming
+    today = Time.now.beginning_of_day
+    future_date = today + 2.years
+    range = today..future_date
+    @events = Event.where(start: range)
+  
+    render json: @events, include: [:user]
+  end
+
   # GET /events/1
   def show
     render json: @event
-  end
-
-    # GET /events/upcoming
-  def upcoming
-    today = Time.today.beginning_of_day
-    @events = Event.where('start > ?', today)
-  
-    render json: @events
   end
 
   # POST /events
