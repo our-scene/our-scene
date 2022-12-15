@@ -16,16 +16,19 @@ export interface EventValues {
   start: Date;
   end: Date;
   user: {
-    [key: string]: UserValues;
+    id: number;
+    name: string;
+    email: string;
+    is_admin: boolean;
   };
 }
 
-export interface UserValues {
-  id: number;
-  name: string;
-  email: string;
-  is_admin: boolean;
-}
+// export interface UserValues {
+//   id: number;
+//   name: string;
+//   email: string;
+//   is_admin: boolean;
+// }
 
 function useUpcomingEvents() {
   const { session } = useUserAuthContext();
