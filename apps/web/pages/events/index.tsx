@@ -2,44 +2,56 @@ import { EventsForm } from "../../components/Forms/EventsForm";
 import { EventsFormValues } from "../../components/Forms/EventsForm";
 import { useGetUpcomingEventsQuery } from "@our-scene/api-hooks";
 import { useUserAuthContext } from "../../components/contexts/UserAuthContextProvider";
-import { UpcomingEvents } from "../../components/AllEvents/UpcomingEventsView"
+import { UpcomingEvents } from "../../components/AllEvents/UpcomingEventsView";
 // import { useGetUsersWithAuth } from "../services/users";
-const events = require('../api/fakeData/indexEvents.json')
+const events = require("../api/fakeData/indexEvents.json");
 
-export interface EventsMapValues {
-  id: number,
-  title: string,
-  blurb: string,
-  location: string,
-  description: string,
-  start: Date,
-  end: Date
+//can we use export here?
+export interface EventValues {
+  id: number;
+  title: string;
+  blurb: string;
+  location: string;
+  description: string;
+  start: Date;
+  end: Date;
+  user: {
+    [key: string]: UserValues;
+  };
 }
 
+export interface UserValues {
+  id: number;
+  name: string;
+  email: string;
+  is_admin: boolean;
+}
+
+function useUpcomingEvents() {
+  const { session } = useUserAuthContext();
+  const queryResult = useGetUpcomingEventsQuery(session?.idToken, {
+    enabled: Boolean(session?.idToken),
+  });
+
+  // Handle the undefined case by giving some "initial data"
+  return { eventsData: queryResult.data ?? [], ...queryResult };
+}
 
 export default function Events() {
-  const { session } = useUserAuthContext();
-  const { data } = useGetUpcomingEventsQuery(session?.idToken, { enabled: Boolean(session?.idToken) });
-
-  // let eventsArr:EventsMapValues[] = data
-  // console.log('events arr', eventsArr)
-  // data: EventsMapValues
-  //events = array of events
-  //type an array of that
-  //
-
+  const { eventsData, data } = useUpcomingEvents();
 
   const handleAddEventSubmit = (values: EventsFormValues) => {
-    console.log(values)
+    console.log(values);
     // to use react query to post to db eventually.
     // const event = (values: EventsMapValues)
-    const id = events.length ? Math.max(...events.map((event: EventsMapValues) => event.id)) + 1 : 1;
-    
-  }
+    const id = events.length
+      ? Math.max(...events.map((event: EventValues) => event.id)) + 1
+      : 1;
+  };
   return (
     <div>
-      <UpcomingEvents data={data}/>
+      <UpcomingEvents data={eventsData} />
       <EventsForm handleSubmit={handleAddEventSubmit} />
     </div>
-  )
+  );
 }

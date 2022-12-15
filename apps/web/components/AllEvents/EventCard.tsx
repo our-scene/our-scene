@@ -1,4 +1,6 @@
-export const EventCard = () => {
+
+
+export const EventCard = ({ data }): JSX.Element => {
 
 
     return (
