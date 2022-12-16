@@ -3,8 +3,12 @@ import { EventValues } from "../../pages/events/index";
 import { EventCard } from "../AllEvents/EventCard";
 
 interface UpcomingEventProps {
-  [index: number]: EventValues;
+  data: EventValues[];
 }
+
+// interface UpcomingEventProps {
+//   data: (values: EventValues) => void | Promise<void>
+// }
 
 export interface EventCardValues {
   id: number;
@@ -18,23 +22,23 @@ export interface EventCardValues {
 }
 
 export const UpcomingEvents = ({ data }: UpcomingEventProps) => {
-  let event = data.map((event: EventValues): EventCardValues => {
-    return {
-      id: event.id,
-      title: event.title,
-      blurb: event.blurb,
-      location: event.location,
-      start: event.start,
-      end: event.end,
-      hostName: event.user.name,
-      hostEmail: event.user.email,
-    };
-  });
+  // let event = data.map((event: EventValues): EventCardValues => {
+  //   return {
+  //     id: event.id,
+  //     title: event.title,
+  //     blurb: event.blurb,
+  //     location: event.location,
+  //     start: event.start,
+  //     end: event.end,
+  //     hostName: event.user.name,
+  //     hostEmail: event.user.email,
+  //   };
+  // });
 
   return (
     <div>
       {data.map(
-        (event: EventValues): EventCardValues => (
+        (event: EventValues) => (
           <div key={event.id}>
             <EventCard
               id={event.id}
@@ -46,7 +50,6 @@ export const UpcomingEvents = ({ data }: UpcomingEventProps) => {
               hostName={event.user.name}
               hostEmail={event.user.email}
             />
-            {/* <h2>{event.name}</h2> */}
           </div>
         )
       )}

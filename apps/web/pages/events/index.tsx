@@ -23,11 +23,8 @@ export interface EventValues {
   };
 }
 
-// export interface UserValues {
-//   id: number;
-//   name: string;
-//   email: string;
-//   is_admin: boolean;
+// interface UpcomingEventProps {
+//   [index: number]: EventValues;
 // }
 
 function useUpcomingEvents() {
@@ -51,6 +48,7 @@ export default function Events() {
       ? Math.max(...events.map((event: EventValues) => event.id)) + 1
       : 1;
   };
+
   return (
     <div>
       <UpcomingEvents data={eventsData} />
