@@ -1,7 +1,7 @@
 import { Formik, Form } from "formik"
 import { EventsSchema } from "./validation"
-import { TextInput } from "./inputs/TextInput"
-import { DateInput } from "./inputs/DateInput"
+import { TextInput } from "../lib/inputs/TextInput"
+import { DateInput } from "../lib/inputs/DateInput"
 import { EventValues } from "../../pages/events"
 
 interface EventsFormProps {

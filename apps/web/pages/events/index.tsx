@@ -5,7 +5,7 @@ import { UpcomingEvents } from "../../components/AllEvents/UpcomingEventsView";
 import { Event } from "@our-scene/api-hooks/resources/events/types";
 import { type } from "os";
 import { useState } from "react";
-import { Modal } from "../../components/Modal";
+import { Modal } from "../../components/lib/Modal";
 // import { useGetUsersWithAuth } from "../services/users";
 const events = require("../api/fakeData/indexEvents.json");
 
