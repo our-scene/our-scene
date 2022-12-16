@@ -1,28 +1,35 @@
 import { EventsForm } from "../../components/Forms/EventsForm";
-import { EventsFormValues } from "../../components/Forms/EventsForm";
-const events = require('../api/fakeData/indexEvents.json')
+import { useGetUpcomingEventsQuery } from "@our-scene/api-hooks";
+import { useUserAuthContext } from "../../components/contexts/UserAuthContextProvider";
+import { UpcomingEvents } from "../../components/AllEvents/UpcomingEventsView";
+import { Event } from "@our-scene/api-hooks/resources/events/types";
+import { type } from "os";
+// import { useGetUsersWithAuth } from "../services/users";
+const events = require("../api/fakeData/indexEvents.json");
 
-interface EventsMapValues {
-  id: number,
-  title: string,
-  summary: string,
-  location: string,
-  description: string,
-  start: string,
-  end: string
-}
+//can we use export here?
+export type EventValues = Pick<Event, "title" | "blurb" | "address" | "description" | "start" | "end">
+
 
 export default function Events() {
-  const handleAddEventSubmit = (values: EventsFormValues) => {
-    console.log(values)
+  const { session } = useUserAuthContext();
+  const { data = [] } = useGetUpcomingEventsQuery(session?.idToken, {
+    enabled: Boolean(session?.idToken),
+  });
+
+  const handleAddEventSubmit = (values: EventValues) => {
+    console.log(values);
     // to use react query to post to db eventually.
     // const event = (values: EventsMapValues)
-    const id = events.length ? Math.max(...events.map((event: EventsMapValues) => event.id)) + 1 : 1;
-    
-  }
+    const id = events.length
+      ? Math.max(...events.map((event: Event) => event.id)) + 1
+      : 1;
+  };
+
   return (
     <div>
+      <UpcomingEvents data={data} />
       <EventsForm handleSubmit={handleAddEventSubmit} />
     </div>
-  )
+  );
 }
