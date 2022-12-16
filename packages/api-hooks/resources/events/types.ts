@@ -1,10 +1,14 @@
-type Event = {
+import { User } from "../users/types";
+
+export interface Event {
+  id: number;
   title: string;
   blurb: string;
-  location: string;
+  address: string;
   description: string;
-  start: string;
-  end: string;
+  start: Date;
+  end: Date;
+  user: User;
 }
 
 export declare namespace GetAllEvents {

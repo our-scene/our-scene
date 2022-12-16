@@ -1,19 +1,8 @@
-import { EventValues } from "../../pages/events/index";
+import { Event } from "@our-scene/api-hooks/resources/events/types";
 import { EventCard } from "../AllEvents/EventCard";
 
 interface UpcomingEventProps {
-  data: EventValues[];
-}
-
-export interface EventCardValues {
-  id: number;
-  title: string;
-  blurb: string;
-  address: string;
-  start: Date;
-  end: Date;
-  hostName: string;
-  hostEmail: string;
+  data: Event[];
 }
 
 export const UpcomingEvents = ({ data }: UpcomingEventProps) => {
@@ -21,7 +10,7 @@ export const UpcomingEvents = ({ data }: UpcomingEventProps) => {
   return (
     <div>
       {data.map(
-        (event: EventValues) => (
+        (event: Event) => (
           <div key={event.id}>
             <EventCard
               id={event.id}
