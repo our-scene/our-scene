@@ -17,7 +17,6 @@ export const EventCard = ({id, title, blurb, location, start, end, hostName, hos
   let formattedStartDate = startDate.toLocaleString();
   let formattedEndDate = endDate.toLocaleString();
 
-  console.log(location)
     return (
       <div key={id}>
         <h2>{title}</h2>

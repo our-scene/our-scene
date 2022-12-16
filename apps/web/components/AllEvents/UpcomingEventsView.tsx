@@ -6,10 +6,6 @@ interface UpcomingEventProps {
   data: EventValues[];
 }
 
-// interface UpcomingEventProps {
-//   data: (values: EventValues) => void | Promise<void>
-// }
-
 export interface EventCardValues {
   id: number;
   title: string;
@@ -22,18 +18,6 @@ export interface EventCardValues {
 }
 
 export const UpcomingEvents = ({ data }: UpcomingEventProps) => {
-  // let event = data.map((event: EventValues): EventCardValues => {
-  //   return {
-  //     id: event.id,
-  //     title: event.title,
-  //     blurb: event.blurb,
-  //     location: event.location,
-  //     start: event.start,
-  //     end: event.end,
-  //     hostName: event.user.name,
-  //     hostEmail: event.user.email,
-  //   };
-  // });
 
   return (
     <div>
