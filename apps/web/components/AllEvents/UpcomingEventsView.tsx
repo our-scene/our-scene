@@ -1,4 +1,3 @@
-import { string } from "yup";
 import { EventValues } from "../../pages/events/index";
 import { EventCard } from "../AllEvents/EventCard";
 

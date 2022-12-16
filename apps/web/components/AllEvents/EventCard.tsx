@@ -21,7 +21,7 @@ export const EventCard = ({
   hostName,
   hostEmail,
 }: EventCardValues) => {
-  console.log(address);
+
   let startDate = new Date(start);
   let endDate = new Date(end);
   let formattedStartDate = startDate.toLocaleString();
