@@ -8,7 +8,7 @@ interface UpcomingEventProps {
 export const UpcomingEvents = ({ data }: UpcomingEventProps) => {
 
   return (
-    <div>
+    <div className="grid grid-cols-3">
       {data.map(
         (event: Event) => (
           <div key={event.id}>
