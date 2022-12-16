@@ -1,27 +1,21 @@
 import Image from "next/image";
+import { Event } from "@our-scene/api-hooks/resources/events/types";
 
-export interface EventCardValues {
-  id: number;
-  title: string;
-  blurb: string;
-  address: string;
-  start: Date;
-  end: Date;
-  hostName: string;
-  hostEmail: string;
-}
+type EventCardProps = {
+  event: Event
+};
 
-export const EventCard = ({
-  id,
-  title,
-  blurb,
-  address,
-  start,
-  end,
-  hostName,
-  hostEmail,
-}: EventCardValues) => {
+// id,
+// title,
+// blurb,
+// address,
+// start,
+// end,
+// hostName,
+// hostEmail,
 
+export const EventCard = ({ event }: EventCardProps) => {
+  const { id, title, blurb, address, start, end, user } = event;
   let startDate = new Date(start);
   let endDate = new Date(end);
   let formattedStartDate = startDate.toLocaleString();
@@ -70,7 +64,7 @@ export const EventCard = ({
                 width={50}
                 height={50}
               />
-              <p className="ml-2 text-sm">{hostName}</p>
+              <p className="ml-2 text-sm">{user.name}</p>
             </a>
             <a
               className="no-underline text-grey-darker hover:text-red-dark"
