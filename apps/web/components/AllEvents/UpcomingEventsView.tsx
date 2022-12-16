@@ -10,7 +10,7 @@ export interface EventCardValues {
   id: number;
   title: string;
   blurb: string;
-  location: string;
+  address: string;
   start: Date;
   end: Date;
   hostName: string;
@@ -28,7 +28,7 @@ export const UpcomingEvents = ({ data }: UpcomingEventProps) => {
               id={event.id}
               title={event.title}
               blurb={event.blurb}
-              location={event.location}
+              address={event.address}
               start={event.start}
               end={event.end}
               hostName={event.user.name}

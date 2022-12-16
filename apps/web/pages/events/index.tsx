@@ -11,7 +11,7 @@ export interface EventValues {
   id: number;
   title: string;
   blurb: string;
-  location: string;
+  address: string;
   description: string;
   start: Date;
   end: Date;
