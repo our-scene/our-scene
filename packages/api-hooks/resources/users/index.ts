@@ -1,9 +1,8 @@
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { Session } from "next-auth";
 import { createAxiosClientWithAuth } from "../../lib/axios";
 import { GetUsers } from "./types";
 
-const generateGetUsersWithAuth = (idToken: Session) => {
+const generateGetUsersWithAuth = (idToken: string) => {
   const client = createAxiosClientWithAuth(idToken);
   const path = "/users";
   const fn = async () => {
@@ -14,10 +13,9 @@ const generateGetUsersWithAuth = (idToken: Session) => {
 };
 
 export const useGetUsersWithAuth = (
-  session: Session | null,
+  idToken: string,
   options: UseQueryOptions<GetUsers.Response> = {}
 ) => {
-  if (session === null) return;
-  const { path: queryKey, fn } = generateGetUsersWithAuth(session);
+  const { path: queryKey, fn } = generateGetUsersWithAuth(idToken);
   return useQuery<GetUsers.Response>([queryKey], fn, options);
 };

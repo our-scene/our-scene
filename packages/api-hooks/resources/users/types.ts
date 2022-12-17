@@ -1,4 +1,4 @@
-import { EmptyObject } from "../../lib/types";
+import { EmptyObject } from "../../lib/generic_types";
 
 export type User = {
   email: string;
