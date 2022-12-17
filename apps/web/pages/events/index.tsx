@@ -1,13 +1,11 @@
-import { EventsForm } from "../../components/Forms/EventsForm";
+import { EventsForm } from "../../components/forms/EventsForm";
 import { useGetUpcomingEventsQuery } from "@our-scene/api-hooks";
 import { useUserAuthContext } from "../../components/contexts/UserAuthContextProvider";
-import { UpcomingEvents } from "../../components/AllEvents/UpcomingEventsView";
+import { UpcomingEvents } from "../../components/events/UpcomingEventsView";
 import { Event } from "@our-scene/api-hooks/resources/events/types";
-import { type } from "os";
 import { useState } from "react";
 import { Modal } from "../../components/lib/Modal";
-// import { useGetUsersWithAuth } from "../services/users";
-const events = require("../api/fakeData/indexEvents.json");
+import events from "../api/fakeData/indexEvents.json";
 
 //can we use export here?
 export type EventValues = Pick<
@@ -17,20 +15,19 @@ export type EventValues = Pick<
 
 export default function Events() {
   const { session } = useUserAuthContext();
-  const { data = [] } = useGetUpcomingEventsQuery(session?.idToken, {
-    enabled: Boolean(session?.idToken),
+  const { data = [] } = useGetUpcomingEventsQuery(session?.idToken as string, {
+    enabled: Boolean(session),
   });
   const [isQuickAddModalOpen, setQuickAddModalOpen] = useState(false);
 
   const handleAddEventSubmit = (values: EventValues) => {
-    console.log(values);
     // to use react query to post to db eventually.
     // const event = (values: EventsMapValues)
-    const id = events.length
-      ? Math.max(...events.map((event: Event) => event.id)) + 1
-      : 1;
+    // const id = events.length
+    //   ? Math.max(...events.map((event: Event) => event.id)) + 1
+    //   : 1;
   };
-  
+
   const handleModalClose = () => {
     setQuickAddModalOpen(false);
   };
