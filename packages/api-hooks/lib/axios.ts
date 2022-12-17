@@ -1,6 +1,6 @@
-import axios from 'axios'
+import axios from "axios";
 
-export const createAxiosClientWithAuth = (idToken?: string) => {
+export const createAxiosClientWithAuth = (idToken: string) => {
   const headers = {
     Authorization: `Bearer ${idToken}`,
     "Access-Control-Allow-Origin": "*",
@@ -12,4 +12,3 @@ export const createAxiosClientWithAuth = (idToken?: string) => {
   });
   return client;
 };
-
