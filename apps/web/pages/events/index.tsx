@@ -1,14 +1,10 @@
-import { EventsForm } from '../../components/forms/EventsForm';
+import { EventFormValues, EventsForm } from '../../components/forms/EventsForm';
 import { useGetUpcomingEventsQuery } from '@our-scene/api-hooks';
 import { useUserAuthContext } from '../../components/contexts/UserAuthContextProvider';
 import { UpcomingEvents } from '../../components/events/UpcomingEventsView';
-import { Event } from '@our-scene/api-hooks/resources/events/types';
 import { useState } from 'react';
 import { Modal } from '../../components/lib/Modal';
 // import events from "../api/fakeData/indexEvents.json";
-
-//can we use export here?
-export type EventValues = Pick<Event, 'title' | 'blurb' | 'address' | 'description' | 'start' | 'end'>;
 
 export default function Events() {
   console.log();
@@ -18,7 +14,7 @@ export default function Events() {
   });
   const [isQuickAddModalOpen, setQuickAddModalOpen] = useState(false);
 
-  const handleAddEventSubmit = (values: EventValues) => {
+  const handleAddEventSubmit = (values: EventFormValues) => {
     // to use react query to post to db eventually.
     // const event = (values: EventsMapValues)
     // const id = events.length

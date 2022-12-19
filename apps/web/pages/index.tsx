@@ -1,24 +1,12 @@
-import Head from "next/head";
-import { useUserAuthContext } from "../components/contexts/UserAuthContextProvider";
+import Image from 'next/image';
+import { BaseLayout } from '../components/layout/BaseLayout';
 
 export default function Home() {
-  const userAuthContext = useUserAuthContext();
-  const { signOut } = userAuthContext;
-
-  const handleSignOut = () => {
-    signOut();
-  };
-
   return (
-    <div className="main bg-secondary">
-      <Head>
-        <title>Our Scene Coming Soon</title>
-        <meta name="description" content="Our Scene coming soon page" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className="h-full flex items-center justify-center">
-        <button onClick={handleSignOut}>Log out</button>
+    <BaseLayout>
+      <div className="flex items-center justify-center">
+        <Image src="/assets/logos/logo.svg" alt="logo" width={600} height={600} />
       </div>
-    </div>
+    </BaseLayout>
   );
 }
