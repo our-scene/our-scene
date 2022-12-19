@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { BaseFooter } from './BaseFooter';
 import { BaseNavBar } from './BaseNavbar';
 
@@ -9,7 +9,11 @@ import { BaseNavBar } from './BaseNavbar';
  * - navbar
  * - footer
  */
-export const BaseLayout = ({ children }: { children: React.ReactNode }) => {
+type BaseLayoutProps = {
+  children: ReactNode;
+  showNavBar?: boolean;
+};
+export const BaseLayout = ({ children, showNavBar = true }: BaseLayoutProps) => {
   return (
     <>
       <Head>
@@ -17,7 +21,7 @@ export const BaseLayout = ({ children }: { children: React.ReactNode }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="bg-secondary flex flex-col flex-2">
-        <BaseNavBar />
+        {showNavBar ? <BaseNavBar /> : null}
         <div className="flex flex-grow">{children}</div>
         <BaseFooter />
       </div>
