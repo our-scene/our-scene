@@ -4,6 +4,7 @@ import { useUserAuthContext } from '../../components/contexts/UserAuthContextPro
 import { UpcomingEvents } from '../../components/events/UpcomingEventsView';
 import { useState } from 'react';
 import { Modal } from '../../components/lib/Modal';
+import { BaseLayout } from '../../components/layout/BaseLayout';
 // import events from "../api/fakeData/indexEvents.json";
 
 export default function Events() {
@@ -27,7 +28,7 @@ export default function Events() {
   };
 
   return (
-    <div>
+    <BaseLayout>
       <button className="w-1/3 m-5 btn btn-ghost modal-button" onClick={() => setQuickAddModalOpen(true)}>
         ADD TO-DO
       </button>
@@ -35,6 +36,6 @@ export default function Events() {
       <Modal isOpen={isQuickAddModalOpen} close={handleModalClose}>
         <EventsForm handleSubmit={handleAddEventSubmit} />
       </Modal>
-    </div>
+    </BaseLayout>
   );
 }
