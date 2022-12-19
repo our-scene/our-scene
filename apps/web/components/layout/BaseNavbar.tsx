@@ -1,4 +1,12 @@
 import Image from 'next/image';
+import { useUserAuthContext } from '../contexts/UserAuthContextProvider';
+import { DropdownMenu } from '../lib/Dropdown';
+
+const LogoutNavbarMenuItem = () => {
+  const { signOut } = useUserAuthContext();
+  return <div onClick={signOut}>Log Out</div>;
+};
+
 export const BaseNavBar = () => {
   return (
     <div className="navbar bg-primary flex justify-between w-full px-4 h-5">
@@ -9,6 +17,7 @@ export const BaseNavBar = () => {
         <div className="text-primary-content mr-2">Places</div>
         <div className="text-primary-content mr-2">About Us</div>
       </div>
+      <DropdownMenu menuItems={[<LogoutNavbarMenuItem key={1} />]} />
     </div>
   );
 };
