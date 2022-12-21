@@ -19,6 +19,12 @@ export const UserAuthContextProvider = ({ children }: { children: React.ReactNod
   const { data: session, status: sessionStatus } = useSession();
 
   useEffect(() => {
+    if (session?.error === 'RefreshIDTokenError') {
+      signIn();
+    }
+  }, [session]);
+
+  useEffect(() => {
     if (router.pathname === '/login' && sessionStatus === 'authenticated') {
       router.push('/');
     }
