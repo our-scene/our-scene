@@ -1,4 +1,5 @@
-import { User } from "../users/types";
+import { User } from '../users/types';
+import { EmptyObject } from '../../lib/generic_types';
 
 export interface Event {
   id: number;
@@ -12,26 +13,17 @@ export interface Event {
 }
 
 export declare namespace GetAllEvents {
-  type Request = {}
+  type Request = {};
 
-  type Response = Event[]
+  type Response = Event[];
 
-  type Error = {} // TODO
+  type Error = {}; // TODO
 }
 
 export declare namespace GetUpcomingEvents {
-  type Request = {}
+  type Request = EmptyObject;
 
-  type Response = Event[]
+  type Response = Event[];
 
-  type Error = {} // TODO
+  type Error = {}; // TODO
 }
-
-// export declare namespace GetWorkoutResponse {
-//   type Request = {
-//     pathParams: {
-//       workoutResponseId: string;
-//     };
-//   };
-//   type Response = SerializedWorkoutResponse;
-// }

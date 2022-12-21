@@ -1,24 +1,22 @@
-import Head from "next/head";
-import { useUserAuthContext } from "../components/contexts/UserAuthContextProvider";
+import { signOut, useSession } from 'next-auth/react';
+import Image from 'next/image';
+import { BaseLayout } from '../components/layout/BaseLayout';
+import { useGetUsersWithAuth } from '@our-scene/api-hooks/resources/users';
 
 export default function Home() {
-  const userAuthContext = useUserAuthContext();
-  const { signOut } = userAuthContext;
-
+  const { data: session } = useSession();
+  const getUsers = useGetUsersWithAuth(session?.idToken as string, { enabled: Boolean(session?.idToken) });
   const handleSignOut = () => {
     signOut();
   };
-
   return (
-    <div className="main bg-secondary">
-      <Head>
-        <title>Our Scene Coming Soon</title>
-        <meta name="description" content="Our Scene coming soon page" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className="h-full flex items-center justify-center">
-        <button onClick={handleSignOut}>Log out</button>
+    <BaseLayout>
+      <div className="w-full flex flex-col items-center justify-center">
+        <Image src="/assets/logos/logo.svg" alt="logo" width={600} height={600} />
+        <div className="btn btn-primary" onClick={handleSignOut}>
+          Log Out
+        </div>
       </div>
-    </div>
+    </BaseLayout>
   );
 }
