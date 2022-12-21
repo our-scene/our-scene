@@ -6,6 +6,7 @@ class ApplicationController < ActionController::API
     if @headers['Authorization'].present?
       token = @headers['Authorization'].split(' ').last
       decoded_token = decode_google_id_token(token)
+      render json: { error: 'ID_TOKEN_EXPIRED' }, status: 401 and return if decoded_token[:error].present?
       find_or_create_user_from_decoded_token(decoded_token)
       @user = User.find_or_create_by(email: decoded_token[:email])
       render json: { error: 'Not Authorized' }, status: 401 unless @user
@@ -31,5 +32,7 @@ class ApplicationController < ActionController::API
     email_verified = decoded_token[:email_verified]
     render json: { error: 'Google Email Not Verified' }, status: 401 unless email_verified
     decoded_token
+  rescue Google::Auth::IDTokens::ExpiredTokenError
+    { error: 'Google Email Not Verified' }
   end
 end
