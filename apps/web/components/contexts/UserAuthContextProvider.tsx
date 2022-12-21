@@ -17,6 +17,8 @@ export const UserAuthContext = React.createContext<UserAuthContextValues>({} as 
 export const UserAuthContextProvider = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const { data: session, status: sessionStatus } = useSession();
+  console.log(sessionStatus);
+  console.log(session);
 
   useEffect(() => {
     if (router.pathname === '/login' && sessionStatus === 'authenticated') {

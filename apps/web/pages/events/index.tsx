@@ -15,7 +15,7 @@ export default function Events() {
   });
   const [isQuickAddModalOpen, setQuickAddModalOpen] = useState(false);
 
-  const handleAddEventSubmit = (values: EventFormValues) => {
+  const handleAddEventSubmit = (_values: EventFormValues) => {
     // to use react query to post to db eventually.
     // const event = (values: EventsMapValues)
     // const id = events.length

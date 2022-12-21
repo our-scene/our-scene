@@ -15,7 +15,17 @@ const exo = Exo({
   subsets: ['latin'],
 });
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      onError: (err: unknown) => {
+        console.log('err', err);
+        // how do we invalidate the
+        // signOut();
+      },
+    },
+  },
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   const { session, ...pagePropsWithoutSession } = pageProps;
