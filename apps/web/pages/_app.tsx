@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from '@our-scene/api-hooks';
 
 import 'tailwindcss/tailwind.css';
 import { UserAuthContextProvider } from '../components/contexts/UserAuthContextProvider';
-import { SessionProvider } from 'next-auth/react';
+import { SessionProvider, signOut } from 'next-auth/react';
 
 // If loading a variable font, you don't need to specify the font weight
 // another comment
@@ -19,8 +19,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       onError: (err: unknown) => {
-        console.log('err', err);
-        // how do we invalidate the
+        console.log('ERR: ', err);
         // signOut();
       },
     },

@@ -2,6 +2,7 @@ import NextAuth, { NextAuthOptions } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 import GoogleProvider from 'next-auth/providers/google';
 
+// something is fucked in this refresh toekn business
 async function refreshAccessToken(token: JWT) {
   try {
     const url =
@@ -30,7 +31,7 @@ async function refreshAccessToken(token: JWT) {
     return {
       ...token,
       idToken: refreshedTokens.id_token,
-      idTokenExpires: refreshedTokens.expires_at * 1000,
+      idTokenExpires: Date.now() + refreshedTokens.expires_in * 1000,
       refreshToken: refreshedTokens.refresh_token ?? token.refreshToken, // Fall back to old refresh token
     };
   } catch (error) {
@@ -49,13 +50,11 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async jwt({ token, user, account }) {
-      // Initial sign in
       if (account && user) {
-        // TODO: SHould this really be the accessToken?
-        // and then we pass this access token back to
+        // Initial sign in
         return {
           idToken: account.id_token,
-          idTokenExpires: account.expires_at * 1000,
+          idTokenExpires: account.expires_at,
           refreshToken: account.refresh_token,
           user,
         };

@@ -8,7 +8,6 @@ import { BaseLayout } from '../../components/layout/BaseLayout';
 // import events from "../api/fakeData/indexEvents.json";
 
 export default function Events() {
-  console.log();
   const { session } = useUserAuthContext();
   const { data = [] } = useGetUpcomingEventsQuery(session?.idToken as string, {
     enabled: Boolean(session),
