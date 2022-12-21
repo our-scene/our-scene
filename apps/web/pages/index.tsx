@@ -1,42 +1,22 @@
-import { useGetAllEventsQuery, useGetUpcomingEventsQuery } from "@our-scene/api-hooks";
-import Head from "next/head";
-import ComingSoon from "../components/ComingSoon";
-import { useUserAuthContext } from "../components/contexts/UserAuthContextProvider";
-import { useGetUsersWithAuth } from "../services/users";
-// import { useGetAllEventsQuery, useQueryClient } from '@our-scene/api-hooks'
-
+import { signOut, useSession } from 'next-auth/react';
+import Image from 'next/image';
+import { BaseLayout } from '../components/layout/BaseLayout';
+import { useGetUsersWithAuth } from '@our-scene/api-hooks/resources/users';
 
 export default function Home() {
-  const userAuthContext = useUserAuthContext();
-  const { session, signOut } = userAuthContext;
-
-  const getUsersQuery = useGetUsersWithAuth(session, {
-    enabled: Boolean(session),
-    refetchOnMount: "always",
-  });
-  // console.log(getQuery)
-
+  const { data: session } = useSession();
+  const getUsers = useGetUsersWithAuth(session?.idToken as string, { enabled: Boolean(session?.idToken) });
   const handleSignOut = () => {
     signOut();
   };
-
-  // header, footer and body: coming soon component  
-  const getAllEventsQuery = useGetAllEventsQuery(session?.idToken, { enabled: Boolean(session?.idToken) })
-  // const getUpcomingEventsQuery = useGetUpcomingEventsQuery(session?.idToken, { enabled: Boolean(session?.idToken) });
-  // console.log('Upcoming Events: ', getUpcomingEventsQuery)
-  // const queryClient = useQueryClient()
-
   return (
-    <div className="flex flex-col items-center justify-items-center">
-      <Head>
-        <title>Our Scene Coming Soon</title>
-        <meta name="description" content="Our Scene coming soon page" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className="main bg-[#14213d] h-full">
-        <ComingSoon />
-        <button onClick={handleSignOut}>Log out</button>
+    <BaseLayout>
+      <div className="w-full flex flex-col items-center justify-center">
+        <Image src="/assets/logos/logo.svg" alt="logo" width={600} height={600} />
+        <div className="btn btn-primary" onClick={handleSignOut}>
+          Log Out
+        </div>
       </div>
-    </div>
+    </BaseLayout>
   );
 }
