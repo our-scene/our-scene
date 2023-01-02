@@ -1,5 +1,5 @@
 import { Formik, Form } from 'formik';
-import { EventsSchema } from './validation';
+import { EventValidationSchema } from './EventValidation';
 import { TextInput } from '../lib/inputs/TextInput';
 import { DateInput } from '../lib/inputs/DateInput';
 import { Event } from '@our-scene/api-hooks/resources/events/types';
@@ -26,42 +26,22 @@ export const EventsForm = ({ handleSubmit }: EventsFormProps) => {
   };
 
   return (
-    <Formik onSubmit={handleSubmit} initialValues={initialValues} validationSchema={EventsSchema}>
-      {({ touched, values, errors, handleSubmit: handleFormikSubmit, handleChange }) => {
+    <Formik onSubmit={handleSubmit} initialValues={initialValues} validationSchema={EventValidationSchema}>
+      {({ values, errors, handleSubmit: handleFormikSubmit, handleChange }) => {
         console.log('Errors here', errors);
         return (
           <Form>
-            <TextInput
-              name="title"
-              label="Title"
-              handleChange={handleChange}
-              value={values.title}
-              error={errors.title}
-            />
-            <TextInput
-              name="summary"
-              label="Summary"
-              handleChange={handleChange}
-              value={values.blurb}
-              error={errors.blurb}
-            />
-            <TextInput
-              name="location"
-              label="Location"
-              handleChange={handleChange}
-              value={values.address}
-              error={errors.address}
-            />
+            <TextInput name="title" handleChange={handleChange} value={values.title} error={errors.title} />
+            <TextInput name="summary" handleChange={handleChange} value={values.blurb} error={errors.blurb} />
+            <TextInput name="location" handleChange={handleChange} value={values.address} error={errors.address} />
             <TextInput
               name="description"
-              label="Description"
               handleChange={handleChange}
               value={values.description}
               error={errors.description}
             />
             <DateInput
               name="start"
-              label="Start"
               handleChange={handleChange}
               value={values.start}
               min={todaysDateStr}
@@ -69,7 +49,6 @@ export const EventsForm = ({ handleSubmit }: EventsFormProps) => {
             />
             <DateInput
               name="end"
-              label="End"
               handleChange={handleChange}
               value={values.end}
               min={todaysDateStr}
