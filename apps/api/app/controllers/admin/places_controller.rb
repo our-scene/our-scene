@@ -5,9 +5,8 @@ module Admin
 
     # GET /admin/places
     def index
-      @places = Place.all
-
-      render json: @places
+      @places = Place.order(:created_at).includes(:user)
+      render json: @places.as_json(except: [:user_id], include: [:user])
     end
 
     # GET /admin/places/1
@@ -18,9 +17,6 @@ module Admin
     # POST /admin/places
     def create
       @place = Place.new(place_params.merge(user_id: @current_user.id))
-      # @place.author = current_user
-      p 'PLACE'
-      p @place
 
       if @place.save
         render json: @place, status: :created, location: @place
