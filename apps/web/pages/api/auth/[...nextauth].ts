@@ -44,19 +44,38 @@ async function refreshAccessToken(token: JWT) {
   }
 }
 
+const createOrFindUserByEmail = async ({ email, name }: { email: string; name?: string | null }) => {
+  // TODO: the domain should come from .env variables
+  const url = `http://localhost:3000/admin/users`;
+  const body = { email, name };
+  console.log(body);
+  const response = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(body),
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  });
+  const user = await response.json();
+  return user.id;
+};
+
 export const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt',
   },
   callbacks: {
     async jwt({ token, user, account }) {
-      if (account && user) {
-        // Initial sign in
+      if (account && user && user.email) {
+        const body = { email: user.email, name: user.name };
+        const userId = await createOrFindUserByEmail(body);
+        // TODO: put whole user on session??
         return {
           idToken: account.id_token,
           idTokenExpires: account.expires_at,
           refreshToken: account.refresh_token,
-          user,
+          userId,
         };
       }
       // Return previous token if the access token has not expired yet
@@ -72,6 +91,7 @@ export const authOptions: NextAuthOptions = {
       session.idToken = token.idToken as string;
       session.refreshToken = token.refreshToken as string;
       session.expires = new Date(token.idTokenExpires as string).toISOString();
+      session.userId = token.userId as number;
       return session;
     },
   },
