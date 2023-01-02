@@ -32,10 +32,7 @@ const generateAdminCreatePlaceWithAuth = (idToken: string) => {
   return { path: ADMIN_PLACES_ROOT_PATH, fn };
 };
 
-export const useAdminCreatePlaceQuery = (
-  sessionIdToken: string
-  // options: UseQueryOptions<AdminGetAllPlaces.Response> = {}
-) => {
+export const useAdminCreatePlaceMutation = (sessionIdToken: string) => {
   const { path: queryKey, fn } = generateAdminCreatePlaceWithAuth(sessionIdToken);
   // TODO: use queryKey to append newly created place to cache array onMutate
   return useMutation({
