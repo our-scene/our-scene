@@ -33,6 +33,8 @@ export default function Events() {
       </button>
       <UpcomingEvents data={data} />
       <Modal isOpen={isQuickAddModalOpen} close={handleModalClose}>
+        {/* TODO: move this into /admin/events/new */}
+        {/* TODO: this is the 'basic user' all events view */}
         <EventsForm handleSubmit={handleAddEventSubmit} />
       </Modal>
     </BaseLayout>

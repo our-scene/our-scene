@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  before_action :authorize
+  before_action :authorize, expect: [:show_by_email]
 
   def authorize
     @headers = request.headers

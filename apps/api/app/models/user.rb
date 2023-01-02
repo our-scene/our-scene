@@ -10,5 +10,6 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
-  has_many :events 
+  has_many :events
+  has_many :places
 end
