@@ -13,7 +13,7 @@ export type Place = {
   description: string;
   status: Status;
   address: Address;
-  author: User;
+  user: User;
 };
 
 export declare namespace AdminGetAllPlaces {
