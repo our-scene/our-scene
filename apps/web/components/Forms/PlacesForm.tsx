@@ -3,7 +3,7 @@ import { TextInput } from '../lib/inputs/TextInput';
 import { Place } from '@our-scene/api-hooks/resources/admin/places';
 import { PlaceValidationSchema } from './PlaceValidation';
 
-export type PlaceFormValues = Omit<Place, 'id' | 'address' | 'author' | 'status'>;
+export type PlaceFormValues = Omit<Place, 'id' | 'address' | 'user' | 'status'>;
 
 type PlaceFormProps = {
   handleSubmit: (placeValues: PlaceFormValues) => Promise<Place>;

@@ -5,12 +5,16 @@ import { AdminLayout } from '../../../components/layout/AdminLayout';
 
 const AdminPlacesNew = () => {
   const { data: session } = useSession();
+  console.log({ session });
   const createPlaceMutation = useAdminCreatePlaceMutation(session?.idToken as string);
 
   const handleCreateNewPlace = async (body: PlaceFormValues) => {
     try {
-      const newPlace = await createPlaceMutation.mutateAsync(body);
-      console.log(newPlace);
+      const placeData = {
+        ...body,
+        user_id: session?.userId,
+      };
+      const newPlace = await createPlaceMutation.mutateAsync(placeData);
       return newPlace;
     } catch (err) {
       console.log('[ADMIN CREATE NEW PLACE ERROR]: ', err);

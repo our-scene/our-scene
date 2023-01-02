@@ -1,33 +1,35 @@
 module Admin
   class PlacesController < ApplicationController
     before_action :set_place, only: %i[show update destroy]
+    before_action :set_current_user, only: %i[create]
 
-    # GET /places
+    # GET /admin/places
     def index
       @places = Place.all
 
       render json: @places
     end
 
-    # GET /places/1
+    # GET /admin/places/1
     def show
       render json: @place
     end
 
-    # POST /places
+    # POST /admin/places
     def create
-      p 'PLACES PARAMS'
-      p place_params
-      # @place = Place.new(place_params)
+      @place = Place.new(place_params.merge(user_id: @current_user.id))
+      # @place.author = current_user
+      p 'PLACE'
+      p @place
 
-      # if @place.save
-      #   render json: @place, status: :created, location: @place
-      # else
-      #   render json: @place.errors, status: :unprocessable_entity
-      # end
+      if @place.save
+        render json: @place, status: :created, location: @place
+      else
+        render json: @place.errors, status: :unprocessable_entity
+      end
     end
 
-    # PATCH/PUT /places/1
+    # PATCH/PUT /admin/places/1
     def update
       if @place.update(place_params)
         render json: @place
@@ -36,7 +38,7 @@ module Admin
       end
     end
 
-    # DELETE /places/1
+    # DELETE /admin/places/1
     def destroy
       @place.destroy
     end
@@ -51,6 +53,10 @@ module Admin
     # Only allow a list of trusted parameters through.
     def place_params
       params.require(:place).permit(:title, :description, :blurb)
+    end
+
+    def set_current_user
+      @current_user = User.find(params[:user_id])
     end
   end
 end
