@@ -1,11 +1,10 @@
 import { AdminLayout } from '../../components/layout/AdminLayout';
 
-const AdminPlacesNew = () => {
+const AdminHome = () => {
   return (
     <AdminLayout>
-      <div>Admin Places</div>
+      <div>Admin Home</div>
     </AdminLayout>
   );
 };
-
-export default AdminPlacesNew;
+export default AdminHome;

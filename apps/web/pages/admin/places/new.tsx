@@ -1,9 +1,9 @@
-import { AdminLayout } from '../../components/layout/AdminLayout';
+import { AdminLayout } from '../../../components/layout/AdminLayout';
 
 const AdminPlacesNew = () => {
   return (
     <AdminLayout>
-      <div>Admin Places</div>
+      <div>Create a place</div>
     </AdminLayout>
   );
 };

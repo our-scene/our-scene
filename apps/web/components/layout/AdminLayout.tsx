@@ -1,27 +1,17 @@
 import Head from 'next/head';
 import React, { ReactNode } from 'react';
+import { AdminNavBar } from './AdminNavbar';
 import { BaseFooter } from './BaseFooter';
-import { BaseNavBar } from './BaseNavbar';
 
-/*
- * Our 'default' layout that uses:
- * - full screen
- * - navbar
- * - footer
- */
-type BaseLayoutProps = {
-  children: ReactNode;
-  showNavBar?: boolean;
-};
-export const BaseLayout = ({ children, showNavBar = true }: BaseLayoutProps) => {
+export const AdminLayout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Head>
-        <title>Our Scene Coming Soon</title>
+        <title>Our Scene Admin View</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="bg-secondary flex flex-col flex-2">
-        {showNavBar ? <BaseNavBar /> : null}
+        <AdminNavBar />
         <div className="flex flex-grow justify-center items-center">{children}</div>
         <BaseFooter />
       </div>
