@@ -14,6 +14,7 @@ export type Place = {
   status: Status;
   address: Address;
   user: User;
+  createdAt: string;
 };
 
 export declare namespace AdminGetAllPlaces {
