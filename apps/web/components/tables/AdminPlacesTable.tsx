@@ -2,19 +2,19 @@ import { Place } from '@our-scene/api-hooks/resources/admin/places';
 import Link from 'next/link';
 
 export const AdminPlacesTable = ({ places }: { places: Place[] }) => {
-  // TODO: figure out how to set this at the theme level
-  const thClass = 'bg-primary';
+  // TODO: make table sortable
+  // TODO: paginate
   return (
     <div className="overflow-x-auto">
       <table className="table table-normal w-full">
         <thead>
           <tr>
-            <th className={thClass}>Id</th>
-            <th className={thClass}>Title</th>
-            <th className={thClass}>Status</th>
-            <th className={thClass}>Created By</th>
-            <th className={thClass}>Created At</th>
-            <th className={thClass}></th>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Created By</th>
+            <th>Created At</th>
+            <th></th>
           </tr>
         </thead>
         <tbody className="text-primary">

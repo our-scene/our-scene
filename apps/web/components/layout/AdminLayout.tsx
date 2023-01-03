@@ -12,7 +12,7 @@ export const AdminLayout = ({ children }: { children: ReactNode }) => {
       </Head>
       <div className="bg-secondary flex flex-col flex-2">
         <AdminNavBar />
-        <div className="flex flex-grow justify-center">{children}</div>
+        <div className="flex flex-grow justify-center text-primary">{children}</div>
         <BaseFooter />
       </div>
     </>
