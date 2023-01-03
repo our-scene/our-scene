@@ -1,4 +1,5 @@
 import axios, { AxiosRequestTransformer, AxiosResponseTransformer } from 'axios';
+import { camelToSnakeCaseObject, snakeToCamelCaseObject } from './object_helpers';
 
 export const createAxiosClientWithAuth = (idToken: string) => {
   const headers = {
@@ -9,7 +10,7 @@ export const createAxiosClientWithAuth = (idToken: string) => {
   const client = axios.create({
     baseURL: 'http://localhost:3000',
     headers,
-    transformRequest: [...defaultRequestTransformers(), handleTransformAxiosRequest],
+    transformRequest: [handleTransformAxiosRequest, ...defaultRequestTransformers()],
     transformResponse: [...defaultResposneTransformers(), handleTransformAxiosResponse],
   });
   return client;
@@ -20,14 +21,17 @@ export const createAxiosClientWithAuth = (idToken: string) => {
 // this is where we'll serialize our data for rails
 // mainly changing keys from camelCase to snake_case
 const handleTransformAxiosRequest: AxiosRequestTransformer = (data) => {
-  return data;
+  const transformedData = camelToSnakeCaseObject(data);
+  return transformedData;
 };
 
 // // This is where we're 'deserialize' our rails data
 // // For now, let's just pass the response through.
 // mainly changing keys from snake_case to camelCase
 const handleTransformAxiosResponse: AxiosResponseTransformer = (data) => {
-  return data;
+  if (typeof data === 'string') return data;
+  const transformedData = snakeToCamelCaseObject(data);
+  return transformedData;
 };
 
 // AXIOS CLIENT CREATION HELPERS ****************
