@@ -3,12 +3,13 @@ import { capitalize } from '../../../lib/string_helpers';
 
 interface TextInputProps {
   name: string;
-  handleChange: ChangeEventHandler<HTMLInputElement> | undefined;
+  handleChange: ChangeEventHandler<HTMLInputElement>;
   value: string;
   error: string | undefined;
+  touched: boolean | undefined;
 }
 
-export function TextInput({ name, handleChange, value, error }: TextInputProps) {
+export function TextInput({ name, handleChange, value, error, touched }: TextInputProps) {
   return (
     <>
       <label htmlFor={name}>{capitalize(name)}:</label>
@@ -19,7 +20,7 @@ export function TextInput({ name, handleChange, value, error }: TextInputProps) 
         value={value}
         name={name}
       />
-      {Boolean(error) && <div className="text-error text-xs">{error}</div>}
+      {touched && Boolean(error) && <div className="text-error text-xs">{error}</div>}
     </>
   );
 }
