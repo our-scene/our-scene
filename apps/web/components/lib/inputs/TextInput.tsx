@@ -6,10 +6,10 @@ interface TextInputProps {
   handleChange: ChangeEventHandler<HTMLInputElement>;
   value: string;
   error: string | undefined;
-  touched: boolean | undefined;
+
 }
 
-export function TextInput({ name, handleChange, value, error, touched }: TextInputProps) {
+export function TextInput({ name, handleChange, value, error }: TextInputProps) {
   return (
     <>
       <label htmlFor={name}>{capitalize(name)}:</label>
@@ -20,7 +20,7 @@ export function TextInput({ name, handleChange, value, error, touched }: TextInp
         value={value}
         name={name}
       />
-      {touched && Boolean(error) && <div className="text-error text-xs">{error}</div>}
+      {Boolean(error) && <div className="text-xs text-error">{error}</div>}
     </>
   );
 }

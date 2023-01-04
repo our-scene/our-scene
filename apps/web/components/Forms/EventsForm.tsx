@@ -32,8 +32,8 @@ export const EventsForm = ({ handleSubmit }: EventsFormProps) => {
         return (
           <Form>
             <TextInput name="title" handleChange={handleChange} value={values.title} error={errors.title} />
-            <TextInput name="summary" handleChange={handleChange} value={values.blurb} error={errors.blurb} />
-            <TextInput name="location" handleChange={handleChange} value={values.address} error={errors.address} />
+            <TextInput name="blurb" handleChange={handleChange} value={values.blurb} error={errors.blurb} />
+            <TextInput name="address" handleChange={handleChange} value={values.address} error={errors.address} />
             <TextInput
               name="description"
               handleChange={handleChange}

@@ -3,7 +3,8 @@ import { AdminLayout } from '../../../components/layout/AdminLayout';
 const AdminEventsNew = () => {
   return (
     <AdminLayout>
-      <div>Admin Events</div>
+
+      <div>NEW EVENT FORM WILL GO HERE </div>
     </AdminLayout>
   );
 };

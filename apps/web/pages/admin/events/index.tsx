@@ -3,7 +3,8 @@ import { AdminLayout } from '../../../components/layout/AdminLayout';
 const AdminEvents = () => {
   return (
     <AdminLayout>
-      <div>Admin Events</div>
+      <div>Admin Events TABLE</div>
+      <button className=''></button>
     </AdminLayout>
   );
 };
