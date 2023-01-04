@@ -12,8 +12,9 @@ export type Place = {
   blurb: string;
   description: string;
   status: Status;
-  address: Address;
+  // address: Address;
   user: User;
+  createdAt: string;
 };
 
 export declare namespace AdminGetAllPlaces {
@@ -24,9 +25,10 @@ export declare namespace AdminGetAllPlaces {
   type Error = {}; // TODO
 }
 
+type AdminCreatePlaceRequestBody = Omit<Place, 'id'> & { userId: number };
 export declare namespace AdminCreatePlace {
   type Request = {
-    body: Omit<Place, 'id'>;
+    body: AdminCreatePlaceRequestBody;
   };
 
   type Response = Place;

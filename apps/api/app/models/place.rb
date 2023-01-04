@@ -5,6 +5,7 @@
 #  id          :bigint           not null, primary key
 #  blurb       :string
 #  description :string
+#  status      :integer
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -16,4 +17,6 @@
 #
 class Place < ApplicationRecord
   belongs_to :user
+
+  enum status: %i[active inactive draft archived]
 end
