@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { EmptyObject, Address } from '../../../lib/generic_types';
 import { User } from '../../users/types';
 
@@ -25,7 +26,7 @@ export declare namespace AdminGetAllPlaces {
   type Error = {}; // TODO
 }
 
-type AdminCreatePlaceRequestBody = Omit<Place, 'id'> & { userId: number };
+type AdminCreatePlaceRequestBody = Omit<Place, 'id' | 'user' | 'createdAt'> & { userId: number };
 export declare namespace AdminCreatePlace {
   type Request = {
     body: AdminCreatePlaceRequestBody;
