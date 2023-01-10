@@ -28,15 +28,19 @@ export default function Events() {
 
   return (
     <BaseLayout>
-      <button className="w-1/3 m-5 btn btn-ghost modal-button" onClick={() => setQuickAddModalOpen(true)}>
-        ADD TO-DO
-      </button>
-      <UpcomingEvents data={data} />
-      <Modal isOpen={isQuickAddModalOpen} close={handleModalClose}>
-        {/* TODO: move this into /admin/events/new */}
-        {/* TODO: this is the 'basic user' all events view */}
-        <EventsForm handleSubmit={handleAddEventSubmit} />
-      </Modal>
+      <div className="flex flex-col">
+        <div>
+          <button className="w-1/3 m-5 btn btn-ghost modal-button" onClick={() => setQuickAddModalOpen(true)}>
+            ADD TO-DO
+          </button>
+        </div>
+        <UpcomingEvents data={data} />
+        <Modal isOpen={isQuickAddModalOpen} close={handleModalClose}>
+          {/* TODO: move this into /admin/events/new */}
+          {/* TODO: this is the 'basic user' all events view */}
+          <EventsForm handleSubmit={handleAddEventSubmit} />
+        </Modal>
+      </div>
     </BaseLayout>
   );
 }
