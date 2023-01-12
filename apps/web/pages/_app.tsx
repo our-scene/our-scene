@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from '@our-scene/api-hooks';
 
 import 'tailwindcss/tailwind.css';
 import { UserAuthContextProvider } from '../components/contexts/UserAuthContextProvider';
-import { SessionProvider, signOut } from 'next-auth/react';
+import { SessionProvider } from 'next-auth/react';
 
 // If loading a variable font, you don't need to specify the font weight
 // another comment

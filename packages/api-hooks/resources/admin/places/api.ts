@@ -93,7 +93,6 @@ export const useAdminDeletePlaceMutation = (
   { id }: AdminGetPlace.Request['pathParams'],
   options: UseQueryOptions<AdminGetPlace.Response> = {}
 ) => {
-  const queryClient = useQueryClient();
   const { mutationFn } = generateAdminDeletePlace(sessionIdToken, { id });
   return useMutation({
     mutationFn,
