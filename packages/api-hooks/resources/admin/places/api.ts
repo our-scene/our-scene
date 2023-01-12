@@ -1,25 +1,45 @@
 import { useQuery, useMutation, UseQueryOptions } from '@tanstack/react-query';
 import { createAxiosClientWithAuth } from '../../../lib/axios';
-import { AdminCreatePlace, AdminGetAllPlaces } from './types';
+import { AdminCreatePlace, AdminGetPlace, AdminGetPlaces } from './types';
 
 const ADMIN_PLACES_ROOT_PATH = '/admin/places';
 
 // GET ALL PLACES
-const generateAdminGetAllPlacesWithAuth = (idToken: string) => {
+const generateAdminGetPlacesWithAuth = (idToken: string) => {
   const client = createAxiosClientWithAuth(idToken);
   const fn = async () => {
-    const { data } = await client.get<AdminGetAllPlaces.Response>(ADMIN_PLACES_ROOT_PATH);
+    const { data } = await client.get<AdminGetPlaces.Response>(ADMIN_PLACES_ROOT_PATH);
     return data;
   };
   return { path: ADMIN_PLACES_ROOT_PATH, fn };
 };
 
-export const useAdminGetAllPlacesQuery = (
+export const useAdminGetPlacesQuery = (
   sessionIdToken: string,
-  options: UseQueryOptions<AdminGetAllPlaces.Response> = {}
+  options: UseQueryOptions<AdminGetPlaces.Response> = {}
 ) => {
-  const { path: queryKey, fn } = generateAdminGetAllPlacesWithAuth(sessionIdToken);
-  return useQuery<AdminGetAllPlaces.Response>([queryKey], fn, options);
+  const { path: queryKey, fn } = generateAdminGetPlacesWithAuth(sessionIdToken);
+  return useQuery<AdminGetPlaces.Response>([queryKey], fn, options);
+};
+
+// GET PLACE
+const generateAdminGetPlaceWithAuth = (idToken: string, { id }: AdminGetPlace.Request['pathParams']) => {
+  const client = createAxiosClientWithAuth(idToken);
+  const fn = async () => {
+    const getPlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}`;
+    const { data } = await client.get<AdminGetPlace.Response>(getPlaceUrl);
+    return data;
+  };
+  return { path: ADMIN_PLACES_ROOT_PATH, fn };
+};
+
+export const useAdminGetPlaceQuery = (
+  sessionIdToken: string,
+  { id }: AdminGetPlace.Request['pathParams'],
+  options: UseQueryOptions<AdminGetPlace.Response> = {}
+) => {
+  const { path: queryKey, fn } = generateAdminGetPlaceWithAuth(sessionIdToken, { id });
+  return useQuery<AdminGetPlace.Response>([queryKey], fn, options);
 };
 
 // CREATE PLACE
