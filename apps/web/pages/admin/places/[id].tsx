@@ -1,6 +1,7 @@
 import { useAdminGetPlaceQuery } from '@our-scene/api-hooks/resources/admin/places';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { PlaceForm } from '../../../components/forms/PlacesForm';
 import { AdminLayout } from '../../../components/layout/AdminLayout';
 
 const AdminPlaceDetails = () => {
@@ -13,9 +14,12 @@ const AdminPlaceDetails = () => {
     { enabled: Boolean(placeId) }
   );
 
+  // TODO: make card for PlaceForm
+  //
   return (
     <AdminLayout>
       <div>AdminPlaceDetails: {placeId}</div>
+      <PlaceForm />
     </AdminLayout>
   );
 };

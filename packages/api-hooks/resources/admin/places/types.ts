@@ -48,3 +48,17 @@ export declare namespace AdminCreatePlace {
 
   type Error = {}; // TODO
 }
+
+type AdminUpdatePlaceRequestBody = Partial<Omit<Place, 'id' | 'createdAt'>>;
+export declare namespace AdminUpdatePlace {
+  type Request = {
+    pathParams: {
+      id: string;
+    };
+    body: AdminUpdatePlaceRequestBody;
+  };
+
+  type Response = Place[];
+
+  type Error = {}; // TODO
+}

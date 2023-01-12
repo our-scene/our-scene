@@ -1,6 +1,7 @@
 import { useQuery, useMutation, UseQueryOptions } from '@tanstack/react-query';
+import { Session } from 'inspector';
 import { createAxiosClientWithAuth } from '../../../lib/axios';
-import { AdminCreatePlace, AdminGetPlace, AdminGetPlaces } from './types';
+import { AdminCreatePlace, AdminGetPlace, AdminGetPlaces, AdminUpdatePlace } from './types';
 
 const ADMIN_PLACES_ROOT_PATH = '/admin/places';
 
@@ -23,7 +24,7 @@ export const useAdminGetPlacesQuery = (
 };
 
 // GET PLACE
-const generateAdminGetPlaceWithAuth = (idToken: string, { id }: AdminGetPlace.Request['pathParams']) => {
+const generateAdminGetPlace = (idToken: string, { id }: AdminGetPlace.Request['pathParams']) => {
   const client = createAxiosClientWithAuth(idToken);
   const fn = async () => {
     const getPlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}`;
@@ -38,12 +39,12 @@ export const useAdminGetPlaceQuery = (
   { id }: AdminGetPlace.Request['pathParams'],
   options: UseQueryOptions<AdminGetPlace.Response> = {}
 ) => {
-  const { path: queryKey, fn } = generateAdminGetPlaceWithAuth(sessionIdToken, { id });
+  const { path: queryKey, fn } = generateAdminGetPlace(sessionIdToken, { id });
   return useQuery<AdminGetPlace.Response>([queryKey], fn, options);
 };
 
 // CREATE PLACE
-const generateAdminCreatePlaceWithAuth = (idToken: string) => {
+const generateAdminCreatePlace = (idToken: string) => {
   const client = createAxiosClientWithAuth(idToken);
   const fn = async (body: AdminCreatePlace.Request['body']) => {
     const { data } = await client.post<AdminCreatePlace.Response>(ADMIN_PLACES_ROOT_PATH, body);
@@ -53,9 +54,28 @@ const generateAdminCreatePlaceWithAuth = (idToken: string) => {
 };
 
 export const useAdminCreatePlaceMutation = (sessionIdToken: string) => {
-  const { fn } = generateAdminCreatePlaceWithAuth(sessionIdToken);
-  // TODO: use queryKey to append newly created place to cache array onMutate
+  const { fn } = generateAdminCreatePlace(sessionIdToken);
   return useMutation({
     mutationFn: (body: AdminCreatePlace.Request['body']) => fn(body),
   });
 };
+
+// UPDATE PLACE
+const generateAdminUpdatePlace = (idToken: string, { id }: AdminUpdatePlace.Request['pathParams']) => {
+  const client = createAxiosClientWithAuth(idToken);
+  const fn = async (body: AdminUpdatePlace.Request['body']) => {
+    const updatePlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}`;
+    const { data } = await client.post<AdminUpdatePlace.Response>(updatePlaceUrl, body);
+    return data;
+  };
+  return { path: ADMIN_PLACES_ROOT_PATH, fn };
+};
+
+export const useAdminUpdatePlaceMutation = (idToken: string, { id }: AdminUpdatePlace.Request['pathParams']) => {
+  const { fn } = generateAdminUpdatePlace(idToken, { id });
+  return useMutation({
+    mutationFn: (body: AdminUpdatePlace.Request['body']) => fn(body),
+  });
+};
+
+// DELETE PLACE
