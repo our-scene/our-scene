@@ -28,7 +28,7 @@ export const EventsForm = ({ handleSubmit }: EventsFormProps) => {
   return (
     <Formik onSubmit={handleSubmit} initialValues={initialValues} validationSchema={EventValidationSchema}>
       {({ values, errors, handleSubmit: handleFormikSubmit, handleChange }) => {
-        console.log('Errors here', errors);
+        // console.log('Errors here', errors);
         return (
           <Form>
             <TextInput name="title" handleChange={handleChange} value={values.title} error={errors.title} />

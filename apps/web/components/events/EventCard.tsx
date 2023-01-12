@@ -1,27 +1,21 @@
 import Image from 'next/image';
 import { Event } from '@our-scene/api-hooks/resources/events/types';
-import { useContext } from 'react';
-import { UpcomingEventContext } from './UpcomingEventsView';
 
 type EventCardProps = {
   event: Event;
+  handleSelect: (event: Event) => void | Promise<void>;
 };
 
-export const EventCard = ({ event }: EventCardProps) => {
-  const { title, blurb, address, start, end, id } = event;
-  const { setSelectedEvent } = useContext(UpcomingEventContext);
-  
+export const EventCard = ({ event, handleSelect }: EventCardProps) => {
+  const { title, blurb, address, start, end } = event;
+
   const startDate = new Date(start);
   const endDate = new Date(end);
   const formattedStartDate = startDate.toLocaleString();
   const formattedEndDate = endDate.toLocaleString();
 
-  // const handleEventSelect = () => {
-  //   setSelectedEvent(id)
-  // };
-
   return (
-    <div className="shadow-xl card w-96 bg-base-100">
+    <div className="shadow-xl card card-side bg-base-100" onClick={() => handleSelect(event)}>
       <figure>
         <Image alt="Placeholder" src="/assets/defaults/Default_landscape.svg" width={25} height={25} />
       </figure>
@@ -36,10 +30,10 @@ export const EventCard = ({ event }: EventCardProps) => {
           <br />
           <span>End: </span> {formattedEndDate}
         </p>
-        <div className="justify-end card-actions">
+        {/* <div className="justify-end card-actions">
           <div className="badge badge-secondary">Hiking</div>
           <div className="badge badge-secondary">New York</div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
