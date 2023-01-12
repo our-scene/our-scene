@@ -18,7 +18,7 @@ export const AdminPlacesTable = ({ places }: { places: Place[] }) => {
           </tr>
         </thead>
         <tbody className="text-primary">
-          {places.map((place) => (
+          {places?.map((place) => (
             <tr key={place.id}>
               <td>{place.id}</td>
               <td>{place.title}</td>

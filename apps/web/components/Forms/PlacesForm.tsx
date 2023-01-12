@@ -1,6 +1,7 @@
 import { Formik, Form } from 'formik';
 import { TextInput } from '../lib/inputs/TextInput';
 import { Place } from '@our-scene/api-hooks/resources/admin/places';
+import { EmptyObject } from '@our-scene/api-hooks/lib/generic_types';
 import { PlaceValidationSchema } from './PlaceValidation';
 
 export type PlaceFormValues = Pick<Place, 'title' | 'blurb' | 'description'>;
@@ -9,18 +10,19 @@ type PlaceFormProps = {
   handleSubmit: (placeValues: PlaceFormValues) => Promise<void>;
   submitting: boolean;
   success: boolean;
+  initialValue?: Place | EmptyObject;
 };
 
-export const PlaceForm = ({ handleSubmit, submitting }: PlaceFormProps) => {
+export const PlaceForm = ({ handleSubmit, initialValue = {}, submitting }: PlaceFormProps) => {
   const initialValues = {
-    title: '',
-    blurb: '',
-    description: '',
+    title: initialValue?.title || '',
+    blurb: initialValue?.blurb || '',
+    description: initialValue?.description || '',
   };
 
   const formInputContainerClass = 'my-2';
   return (
-    <div className="card bg-neutral text-primary p-4 shadow-sm">
+    <div className="p-4 shadow-sm card bg-neutral text-primary">
       <div className="text-lg">Create Place:</div>
       <div className="w-1/2">
         <Formik
