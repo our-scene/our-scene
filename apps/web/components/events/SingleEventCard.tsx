@@ -6,7 +6,7 @@ export type SingleEventCardProps = {
   event: Event;
 };
 
-export const SingleEventCard = ({ event }: SingleEventCardProps) => {
+export const EventCardDetailed = ({ event }: SingleEventCardProps) => {
   const { title, address, start, end, description, user } = event;
   // const { setSelectedEvent } = useContext(UpcomingEventContext);
 

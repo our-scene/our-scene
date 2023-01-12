@@ -22,7 +22,7 @@ export const BaseLayout = ({ children, showNavBar = true }: BaseLayoutProps) => 
       </Head>
       <div className="flex flex-col bg-secondary flex-2">
         {showNavBar ? <BaseNavBar /> : null}
-        <div className="flex items-center justify-center flex-grow">{children}</div>
+        <div className="flex flex-col content-center justify-center flex-grow">{children}</div>
         <BaseFooter />
       </div>
     </>
