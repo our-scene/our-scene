@@ -15,13 +15,13 @@ export const EventCard = ({ event, handleSelect }: EventCardProps) => {
   const formattedEndDate = endDate.toLocaleString();
 
   return (
-    <div className="shadow-xl card card-side bg-base-100" onClick={() => handleSelect(event)}>
+    <div className="shadow-xl card card-compact card-side bg-base-100" onClick={() => handleSelect(event)}>
       <figure>
         <Image alt="Placeholder" src="/assets/defaults/Default_landscape.svg" width={25} height={25} />
       </figure>
       <div className="card-body">
-        <h3 className="h-10 card-title">{title}</h3>
-        <p className="leading-loose h-25">
+        <h3 className="card-title">{title}</h3>
+        <p className="leading-loose">
           {address}
           <br />
           {blurb}

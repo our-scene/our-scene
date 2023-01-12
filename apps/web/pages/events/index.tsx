@@ -28,8 +28,8 @@ export default function Events() {
 
   return (
     <BaseLayout>
-      <div className="flex flex-col">
-        <div>
+      {/* <div className="flex flex-col"> */}
+        <div className='self-start justify-self-end'>
           <button className="w-1/3 m-5 btn btn-ghost modal-button" onClick={() => setQuickAddModalOpen(true)}>
             ADD TO-DO
           </button>
@@ -40,7 +40,7 @@ export default function Events() {
           {/* TODO: this is the 'basic user' all events view */}
           <EventsForm handleSubmit={handleAddEventSubmit} />
         </Modal>
-      </div>
+      {/* </div> */}
     </BaseLayout>
   );
 }

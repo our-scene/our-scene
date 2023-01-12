@@ -20,9 +20,9 @@ export const BaseLayout = ({ children, showNavBar = true }: BaseLayoutProps) => 
         <title>Our Scene Coming Soon</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="bg-secondary flex flex-col flex-2">
+      <div className="flex flex-col bg-secondary flex-2">
         {showNavBar ? <BaseNavBar /> : null}
-        <div className="flex flex-grow justify-center items-center">{children}</div>
+        <div className="flex items-center justify-center flex-grow">{children}</div>
         <BaseFooter />
       </div>
     </>
