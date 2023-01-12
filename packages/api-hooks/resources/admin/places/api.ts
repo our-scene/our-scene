@@ -1,7 +1,6 @@
-import { useQuery, useMutation, UseQueryOptions } from '@tanstack/react-query';
-import { Session } from 'inspector';
+import { useQuery, useMutation, UseQueryOptions, useQueryClient } from '@tanstack/react-query';
 import { createAxiosClientWithAuth } from '../../../lib/axios';
-import { AdminCreatePlace, AdminGetPlace, AdminGetPlaces, AdminUpdatePlace } from './types';
+import { AdminCreatePlace, AdminDeletePlace, AdminGetPlace, AdminGetPlaces, AdminUpdatePlace } from './types';
 
 const ADMIN_PLACES_ROOT_PATH = '/admin/places';
 
@@ -26,12 +25,12 @@ export const useAdminGetPlacesQuery = (
 // GET PLACE
 const generateAdminGetPlace = (idToken: string, { id }: AdminGetPlace.Request['pathParams']) => {
   const client = createAxiosClientWithAuth(idToken);
+  const getPlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}`;
   const fn = async () => {
-    const getPlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}`;
     const { data } = await client.get<AdminGetPlace.Response>(getPlaceUrl);
     return data;
   };
-  return { path: ADMIN_PLACES_ROOT_PATH, fn };
+  return { path: getPlaceUrl, fn };
 };
 
 export const useAdminGetPlaceQuery = (
@@ -63,12 +62,12 @@ export const useAdminCreatePlaceMutation = (sessionIdToken: string) => {
 // UPDATE PLACE
 const generateAdminUpdatePlace = (idToken: string, { id }: AdminUpdatePlace.Request['pathParams']) => {
   const client = createAxiosClientWithAuth(idToken);
+  const updatePlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}`;
   const fn = async (body: AdminUpdatePlace.Request['body']) => {
-    const updatePlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}`;
-    const { data } = await client.post<AdminUpdatePlace.Response>(updatePlaceUrl, body);
+    const { data } = await client.put<AdminUpdatePlace.Response>(updatePlaceUrl, body);
     return data;
   };
-  return { path: ADMIN_PLACES_ROOT_PATH, fn };
+  return { path: updatePlaceUrl, fn };
 };
 
 export const useAdminUpdatePlaceMutation = (idToken: string, { id }: AdminUpdatePlace.Request['pathParams']) => {
@@ -79,3 +78,27 @@ export const useAdminUpdatePlaceMutation = (idToken: string, { id }: AdminUpdate
 };
 
 // DELETE PLACE
+const generateAdminDeletePlace = (idToken: string, { id }: AdminDeletePlace.Request['pathParams']) => {
+  const client = createAxiosClientWithAuth(idToken);
+  const deletePlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}`;
+  const mutationFn = async () => {
+    const { data } = await client.delete<AdminGetPlace.Response>(deletePlaceUrl);
+    return data;
+  };
+  return { path: deletePlaceUrl, mutationFn };
+};
+
+export const useAdminDeletePlaceMutation = (
+  sessionIdToken: string,
+  { id }: AdminGetPlace.Request['pathParams'],
+  options: UseQueryOptions<AdminGetPlace.Response> = {}
+) => {
+  const queryClient = useQueryClient();
+  const { mutationFn } = generateAdminDeletePlace(sessionIdToken, { id });
+  return useMutation({
+    mutationFn,
+    // onSuccess: () => {
+    //   queryClient.invalidateQueries({ queryKey: [ADMIN_PLACES_ROOT_PATH] });
+    // },
+  });
+};

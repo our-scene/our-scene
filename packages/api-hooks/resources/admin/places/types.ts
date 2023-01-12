@@ -33,7 +33,7 @@ export declare namespace AdminGetPlace {
     };
   };
 
-  type Response = Place[];
+  type Response = Place;
 
   type Error = {}; // TODO
 }
@@ -58,7 +58,19 @@ export declare namespace AdminUpdatePlace {
     body: AdminUpdatePlaceRequestBody;
   };
 
-  type Response = Place[];
+  type Response = EmptyObject;
+
+  type Error = {}; // TODO
+}
+
+export declare namespace AdminDeletePlace {
+  type Request = {
+    pathParams: {
+      id: string;
+    };
+  };
+
+  type Response = EmptyObject;
 
   type Error = {}; // TODO
 }
