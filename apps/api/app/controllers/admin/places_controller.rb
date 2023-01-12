@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module Admin
+  # admin:: places controller:w
   class PlacesController < ApplicationController
     before_action :set_place, only: %i[show update destroy]
     before_action :set_current_user, only: %i[create]
