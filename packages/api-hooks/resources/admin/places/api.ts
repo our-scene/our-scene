@@ -1,4 +1,4 @@
-import { useQuery, useMutation, UseQueryOptions, useQueryClient } from '@tanstack/react-query';
+import { useQuery, useMutation, UseQueryOptions } from '@tanstack/react-query';
 import { createAxiosClientWithAuth } from '../../../lib/axios';
 import { AdminCreatePlace, AdminDeletePlace, AdminGetPlace, AdminGetPlaces, AdminUpdatePlace } from './types';
 
@@ -96,8 +96,5 @@ export const useAdminDeletePlaceMutation = (
   const { mutationFn } = generateAdminDeletePlace(sessionIdToken, { id });
   return useMutation({
     mutationFn,
-    // onSuccess: () => {
-    //   queryClient.invalidateQueries({ queryKey: [ADMIN_PLACES_ROOT_PATH] });
-    // },
   });
 };
