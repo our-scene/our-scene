@@ -51,7 +51,7 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def place_params
-      params.require(:place).permit(:title, :description, :blurb, :status)
+      params.require(:place).permit(:title, :description, :blurb, :status, :primary_image)
     end
 
     def set_current_user
