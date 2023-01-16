@@ -92,15 +92,11 @@ const generateAdminUploadMediaPlaceMutation = (idToken: string, { id }: AdminUpd
   const client = createAxiosClientWithAuth(idToken);
   const updatePlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}/upload_image`;
   const fn = async (body: AdminPlaceImageUploadRequestBody) => {
-    const { data, request } = await axios.post<AdminUpdatePlace.Response>(
-      'http://localhost:3000/' + updatePlaceUrl,
-      body,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      }
-    );
+    const { data, request } = await client.post<AdminUpdatePlace.Response>(updatePlaceUrl, body, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
     console.log({ request });
     return data;
   };

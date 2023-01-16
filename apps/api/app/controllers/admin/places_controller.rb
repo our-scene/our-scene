@@ -38,16 +38,8 @@ module Admin
     end
 
     def upload_image
-      primary_image = params[:primary_image]
-      @place.primary_image.purge_later
-      @place.primary_image.attach(data: primary_image, filename: 'test.jpeg')
-      # @place.attach(primary_image)
-      if @place.primary_image.attached?
-        p 'here'
-        render json: @place
-      else
-        p '2'
-      end
+      @place.primary_image.attach(update_params[:primary_image])
+      render json: @place
     end
 
     # DELETE /admin/places/1
@@ -64,9 +56,11 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def place_params
-      p 'PARAMS'
-      p params
       params.require(:place).permit(:title, :description, :blurb, :status, :primary_image)
+    end
+
+    def update_params
+      params.require(:place).permit(:primary_image)
     end
 
     def set_current_user

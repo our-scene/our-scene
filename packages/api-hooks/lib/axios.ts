@@ -7,13 +7,18 @@ type AxiosClientOptions = {
   };
 };
 export const createAxiosClientWithAuth = (idToken: string, options = {}) => {
-  const defaultHeaders = {
+  const { headers }: { headers?: Object } = options;
+  let defaultHeaders = {
     Authorization: `Bearer ${idToken}`,
     'Access-Control-Allow-Origin': '*',
-    'Content-Type': 'multipart/form-data',
   };
+  if (headers) {
+    defaultHeaders = {
+      ...defaultHeaders,
+      ...headers,
+    };
+  }
 
-  console.log(...defaultRequestTransformers());
   const client = axios.create({
     baseURL: 'http://localhost:3000',
     headers: defaultHeaders,

@@ -50,9 +50,7 @@ export declare namespace AdminCreatePlace {
 }
 
 export type AdminUpdatePlaceRequestBody = Partial<Omit<Place, 'id' | 'createdAt'>>;
-export type AdminPlaceImageUploadRequestBody = {
-  primaryImage?: FormData;
-};
+export type AdminPlaceImageUploadRequestBody = FormData;
 export declare namespace AdminUpdatePlace {
   type Request = {
     pathParams: {

@@ -2,12 +2,21 @@ import {
   useAdminUpdatePlaceMutation,
   useAdminUploadMediaPlaceMutation,
 } from '@our-scene/api-hooks/resources/admin/places';
+import { read } from 'fs';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useRef, useState } from 'react';
 import { IconBaseProps } from 'react-icons';
 import { FiCheck, FiChevronUp, FiPlus } from 'react-icons/fi';
+
+const toBase64 = (file: File): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = (error) => reject(error);
+  });
 
 interface MediaAssetInputProps {
   fieldName: string;
@@ -29,7 +38,7 @@ export const MediaAssetInput = ({ fieldName }: MediaAssetInputProps) => {
     }
   };
 
-  const handleAddPendingFile = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleAddPendingFile = async (e: React.ChangeEvent<HTMLInputElement>): Promise<void> => {
     if (e.target && e.target.files) {
       const file = e.target.files[0];
       setFileToBeUploaded(file);
@@ -44,9 +53,8 @@ export const MediaAssetInput = ({ fieldName }: MediaAssetInputProps) => {
       throw new Error('No File to be Uploaded!');
     }
     const attachment = new FormData();
-    attachment.append(`primary_image`, fileToBeUploaded);
-    attachment.append(`test`, 'TEST');
-    const response = await adminUploadMediaPlaceMutation.mutateAsync({ primary_image: attachment });
+    attachment.append(`place[primary_image]`, fileToBeUploaded);
+    const response = await adminUploadMediaPlaceMutation.mutateAsync(attachment);
   };
 
   let filePreviewUrl = '';
