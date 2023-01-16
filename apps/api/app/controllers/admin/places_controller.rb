@@ -3,7 +3,7 @@
 module Admin
   # admin:: places controller:w
   class PlacesController < ApplicationController
-    before_action :set_place, only: %i[show update destroy]
+    before_action :set_place, only: %i[show update destroy upload_image]
     before_action :set_current_user, only: %i[create]
 
     # GET /admin/places
@@ -37,6 +37,19 @@ module Admin
       end
     end
 
+    def upload_image
+      primary_image = params[:primary_image]
+      @place.primary_image.purge_later
+      @place.primary_image.attach(data: primary_image, filename: 'test.jpeg')
+      # @place.attach(primary_image)
+      if @place.primary_image.attached?
+        p 'here'
+        render json: @place
+      else
+        p '2'
+      end
+    end
+
     # DELETE /admin/places/1
     def destroy
       @place.destroy
@@ -51,6 +64,8 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def place_params
+      p 'PARAMS'
+      p params
       params.require(:place).permit(:title, :description, :blurb, :status, :primary_image)
     end
 

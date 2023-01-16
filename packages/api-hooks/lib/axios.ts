@@ -1,15 +1,22 @@
 import axios, { AxiosRequestTransformer, AxiosResponseTransformer } from 'axios';
 import { camelToSnakeCaseObject, snakeToCamelCaseObject } from './object_helpers';
 
-export const createAxiosClientWithAuth = (idToken: string) => {
-  const headers = {
+type AxiosClientOptions = {
+  headers?: {
+    'Content-Type': string;
+  };
+};
+export const createAxiosClientWithAuth = (idToken: string, options = {}) => {
+  const defaultHeaders = {
     Authorization: `Bearer ${idToken}`,
     'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'multipart/form-data',
   };
 
+  console.log(...defaultRequestTransformers());
   const client = axios.create({
     baseURL: 'http://localhost:3000',
-    headers,
+    headers: defaultHeaders,
     transformRequest: [handleTransformAxiosRequest, ...defaultRequestTransformers()],
     transformResponse: [...defaultResposneTransformers(), handleTransformAxiosResponse],
   });

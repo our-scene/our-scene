@@ -49,13 +49,16 @@ export declare namespace AdminCreatePlace {
   type Error = {}; // TODO
 }
 
-type AdminUpdatePlaceRequestBody = Partial<Omit<Place, 'id' | 'createdAt'>>;
+export type AdminUpdatePlaceRequestBody = Partial<Omit<Place, 'id' | 'createdAt'>>;
+export type AdminPlaceImageUploadRequestBody = {
+  primaryImage?: FormData;
+};
 export declare namespace AdminUpdatePlace {
   type Request = {
     pathParams: {
       id: string;
     };
-    body: AdminUpdatePlaceRequestBody;
+    body: AdminUpdatePlaceRequestBody | AdminPlaceImageUploadRequestBody;
   };
 
   type Response = EmptyObject;

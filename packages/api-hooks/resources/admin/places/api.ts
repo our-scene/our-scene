@@ -1,6 +1,14 @@
 import { useQuery, useMutation, UseQueryOptions } from '@tanstack/react-query';
+import axios from 'axios';
 import { createAxiosClientWithAuth } from '../../../lib/axios';
-import { AdminCreatePlace, AdminDeletePlace, AdminGetPlace, AdminGetPlaces, AdminUpdatePlace } from './types';
+import {
+  AdminCreatePlace,
+  AdminDeletePlace,
+  AdminGetPlace,
+  AdminGetPlaces,
+  AdminPlaceImageUploadRequestBody,
+  AdminUpdatePlace,
+} from './types';
 
 const ADMIN_PLACES_ROOT_PATH = '/admin/places';
 
@@ -74,6 +82,35 @@ export const useAdminUpdatePlaceMutation = (idToken: string, { id }: AdminUpdate
   const { fn } = generateAdminUpdatePlace(idToken, { id });
   return useMutation({
     mutationFn: (body: AdminUpdatePlace.Request['body']) => fn(body),
+  });
+};
+
+// NOT IDEAL THAT WE HAVE SEPARATE HOOKS (Update vs UploadMedia)
+// CONSOLIDATE INTO one hook? (make it all formData)
+// UPLOAD MEDIA PLACE
+const generateAdminUploadMediaPlaceMutation = (idToken: string, { id }: AdminUpdatePlace.Request['pathParams']) => {
+  const client = createAxiosClientWithAuth(idToken);
+  const updatePlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}/upload_image`;
+  const fn = async (body: AdminPlaceImageUploadRequestBody) => {
+    const { data, request } = await axios.post<AdminUpdatePlace.Response>(
+      'http://localhost:3000/' + updatePlaceUrl,
+      body,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+    );
+    console.log({ request });
+    return data;
+  };
+  return { path: updatePlaceUrl, fn };
+};
+
+export const useAdminUploadMediaPlaceMutation = (idToken: string, { id }: AdminUpdatePlace.Request['pathParams']) => {
+  const { fn } = generateAdminUploadMediaPlaceMutation(idToken, { id });
+  return useMutation({
+    mutationFn: (body: AdminPlaceImageUploadRequestBody) => fn(body),
   });
 };
 

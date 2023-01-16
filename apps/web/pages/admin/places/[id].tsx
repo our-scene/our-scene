@@ -1,5 +1,5 @@
 import {
-  AdminUpdatePlace,
+  AdminUpdatePlaceRequestBody,
   useAdminGetPlaceQuery,
   useAdminUpdatePlaceMutation,
 } from '@our-scene/api-hooks/resources/admin/places';
@@ -30,7 +30,7 @@ const AdminPlaceDetails = () => {
     isSuccess: isUpdateSuccess,
     // isError: isUpdateError,
   } = adminUpdatePlaceMutation;
-  const handleUpdatePlaceSubmit = async (place: AdminUpdatePlace.Request['body']) => {
+  const handleUpdatePlaceSubmit = async (place: AdminUpdatePlaceRequestBody) => {
     try {
       const response = await adminUpdatePlaceMutation.mutateAsync(place);
       console.log({ response });
@@ -54,7 +54,7 @@ const AdminPlaceDetails = () => {
             />
             <div className="flex flex-col w-1/2">
               <header className="text-lg underline">Primary Image:</header>
-              <MediaAssetInput fieldName="primaryImage" />
+              <MediaAssetInput fieldName="primary_image" />
             </div>
           </div>
         ) : (

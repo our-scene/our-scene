@@ -1,4 +1,10 @@
+import {
+  useAdminUpdatePlaceMutation,
+  useAdminUploadMediaPlaceMutation,
+} from '@our-scene/api-hooks/resources/admin/places';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React, { useRef, useState } from 'react';
 import { IconBaseProps } from 'react-icons';
 import { FiCheck, FiChevronUp, FiPlus } from 'react-icons/fi';
@@ -7,8 +13,15 @@ interface MediaAssetInputProps {
   fieldName: string;
 }
 export const MediaAssetInput = ({ fieldName }: MediaAssetInputProps) => {
+  const router = useRouter();
+  const { id: placeId } = router.query;
+  const { data: session } = useSession();
   const [fileToBeUploaded, setFileToBeUploaded] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const adminUploadMediaPlaceMutation = useAdminUploadMediaPlaceMutation(session?.idToken as string, {
+    id: placeId as string,
+  });
 
   const triggerFileSelect = (): void => {
     if (fileInputRef && fileInputRef.current) {
@@ -24,14 +37,16 @@ export const MediaAssetInput = ({ fieldName }: MediaAssetInputProps) => {
     }
   };
 
-  const handleUploadingPendingFile = () => {
+  const handleUploadingPendingFile = async () => {
     console.log('uploading file');
     if (!fileToBeUploaded) {
       // TODO: dont throw an error here
       throw new Error('No File to be Uploaded!');
     }
-    const formData = new FormData();
-    formData.append(fieldName, fileToBeUploaded);
+    const attachment = new FormData();
+    attachment.append(`primary_image`, fileToBeUploaded);
+    attachment.append(`test`, 'TEST');
+    const response = await adminUploadMediaPlaceMutation.mutateAsync({ primary_image: attachment });
   };
 
   let filePreviewUrl = '';
