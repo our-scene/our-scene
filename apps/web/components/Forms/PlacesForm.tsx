@@ -38,7 +38,7 @@ export const CreatePlaceFormikContainer = ({ handleSubmit, initialValue = {}, su
   };
 
   return (
-    <div className="p-4 shadow-sm card bg-neutral text-primary">
+    <div className="text-primary">
       <div className="text-lg">Create Place:</div>
       <div className="w-1/2">
         <Formik

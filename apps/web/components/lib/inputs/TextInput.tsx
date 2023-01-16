@@ -8,7 +8,6 @@ export function TextInput({ field, form }: FieldProps) {
   const error = errors[name] || '';
   return (
     <>
-      <div>test</div>
       <label htmlFor={name}>{capitalize(name)}:</label>
       <input
         className="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"

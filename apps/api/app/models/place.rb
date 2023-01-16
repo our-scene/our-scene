@@ -16,7 +16,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Place < ApplicationRecord
-  has_one_attachment :primary_image
+  has_one_attached :primary_image
   belongs_to :user
 
   enum status: %i[active inactive draft archived]
