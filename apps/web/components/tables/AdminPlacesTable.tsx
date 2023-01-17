@@ -19,11 +19,11 @@ export const AdminPlacesTable = ({ places }: { places: Place[] }) => {
         </thead>
         <tbody className="text-primary">
           {places?.map((place) => (
-            <tr key={place.id}>
-              <td>{place.id}</td>
-              <td>{place.title}</td>
-              <td>{place.status}</td>
-              <td>{place.user.name}</td>
+            <tr key={place.attributes.id}>
+              <td>{place.attributes.id}</td>
+              <td>{place.attributes.title}</td>
+              <td>{place.attributes.status}</td>
+              <td>{place.attributes.user.name}</td>
               <td>{new Date(place.createdAt).toDateString()}</td>
               <td>
                 <Link href={`/admin/places/${place.id}`}>

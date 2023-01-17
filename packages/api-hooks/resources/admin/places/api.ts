@@ -1,5 +1,4 @@
 import { useQuery, useMutation, UseQueryOptions } from '@tanstack/react-query';
-import axios from 'axios';
 import { createAxiosClientWithAuth } from '../../../lib/axios';
 import {
   AdminCreatePlace,

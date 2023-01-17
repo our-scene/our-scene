@@ -8,6 +8,9 @@ const AdminPlaces = () => {
   const { data: session } = useSession();
   const adminGetAllPlacesQuery = useAdminGetPlacesQuery(session?.idToken as string, { enabled: Boolean(session) });
   const { data: places, isLoading, isError } = adminGetAllPlacesQuery;
+  // TODO: fix response typing
+  const placesData = places?.data;
+  console.log(placesData);
 
   if (isError) return <div>error loading places</div>;
   return (
@@ -19,7 +22,7 @@ const AdminPlaces = () => {
             <div className="w-16 text-xs btn btn-primary">Add Place</div>
           </Link>
         </div>
-        <div className="mt-4">{isLoading ? <div>loading...</div> : <AdminPlacesTable places={places} />}</div>
+        <div className="mt-4">{isLoading ? <div>loading...</div> : <AdminPlacesTable places={placesData} />}</div>
       </div>
     </AdminLayout>
   );
