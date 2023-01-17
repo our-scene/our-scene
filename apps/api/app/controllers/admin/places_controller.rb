@@ -9,12 +9,12 @@ module Admin
     # GET /admin/places
     def index
       @places = Place.order(:created_at).includes(:user)
-      render json: @places.as_json(except: [:user_id], include: [:user])
+      render json: Admin::PlaceSerializer.new(@places, include: [:user]).serializable_hash
     end
 
     # GET /admin/places/1
     def show
-      render json: @place
+      render json: Admin::PlaceSerializer.new(@place, include: [:user]).serializable_hash
     end
 
     # POST /admin/places
