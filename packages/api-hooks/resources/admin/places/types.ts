@@ -18,10 +18,22 @@ export type Place = {
   createdAt: string;
 };
 
-export declare namespace AdminGetAllPlaces {
+export declare namespace AdminGetPlaces {
   type Request = EmptyObject;
 
   type Response = Place[];
+
+  type Error = {}; // TODO
+}
+
+export declare namespace AdminGetPlace {
+  type Request = {
+    pathParams: {
+      id: string;
+    };
+  };
+
+  type Response = Place;
 
   type Error = {}; // TODO
 }
@@ -33,6 +45,33 @@ export declare namespace AdminCreatePlace {
   };
 
   type Response = Place;
+
+  type Error = {}; // TODO
+}
+
+export type AdminUpdatePlaceRequestBody = Partial<Omit<Place, 'id' | 'createdAt'>>;
+export type AdminPlaceImageUploadRequestBody = FormData;
+export declare namespace AdminUpdatePlace {
+  type Request = {
+    pathParams: {
+      id: string;
+    };
+    body: AdminUpdatePlaceRequestBody | AdminPlaceImageUploadRequestBody;
+  };
+
+  type Response = EmptyObject;
+
+  type Error = {}; // TODO
+}
+
+export declare namespace AdminDeletePlace {
+  type Request = {
+    pathParams: {
+      id: string;
+    };
+  };
+
+  type Response = EmptyObject;
 
   type Error = {}; // TODO
 }

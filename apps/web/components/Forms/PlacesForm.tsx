@@ -1,26 +1,44 @@
-import { Formik, Form } from 'formik';
+import { Field, Formik, Form } from 'formik';
 import { TextInput } from '../lib/inputs/TextInput';
 import { Place } from '@our-scene/api-hooks/resources/admin/places';
+import { EmptyObject } from '@our-scene/api-hooks/lib/generic_types';
 import { PlaceValidationSchema } from './PlaceValidation';
 
-export type PlaceFormValues = Pick<Place, 'title' | 'blurb' | 'description'>;
+export type CreatePlaceFormValues = Pick<Place, 'title' | 'blurb' | 'description'>;
 
 type PlaceFormProps = {
-  handleSubmit: (placeValues: PlaceFormValues) => Promise<void>;
+  handleSubmit: (createPlaceFormValues: CreatePlaceFormValues) => Promise<void>;
   submitting: boolean;
   success: boolean;
+  initialValue?: Place | EmptyObject;
 };
 
-export const PlaceForm = ({ handleSubmit, submitting }: PlaceFormProps) => {
-  const initialValues = {
-    title: '',
-    blurb: '',
-    description: '',
-  };
-
+const CreatePlaceForm = () => {
   const formInputContainerClass = 'my-2';
   return (
-    <div className="card bg-neutral text-primary p-4 shadow-sm">
+    <>
+      <div className={formInputContainerClass}>
+        <Field component={TextInput} name="title" />
+      </div>
+      <div className={formInputContainerClass}>
+        <Field component={TextInput} name="blurb" />
+      </div>
+      <div className={formInputContainerClass}>
+        <Field component={TextInput} name="description" />
+      </div>
+    </>
+  );
+};
+
+export const CreatePlaceFormikContainer = ({ handleSubmit, initialValue = {}, submitting }: PlaceFormProps) => {
+  const initialValues = {
+    title: initialValue?.title || '',
+    blurb: initialValue?.blurb || '',
+    description: initialValue?.description || '',
+  };
+
+  return (
+    <div className="text-primary">
       <div className="text-lg">Create Place:</div>
       <div className="w-1/2">
         <Formik
@@ -32,42 +50,12 @@ export const PlaceForm = ({ handleSubmit, submitting }: PlaceFormProps) => {
           initialValues={initialValues}
           validationSchema={PlaceValidationSchema}
         >
-          {({ touched, values, errors, handleChange }) => {
-            return (
-              <Form>
-                <div className={formInputContainerClass}>
-                  <TextInput
-                    name="title"
-                    handleChange={handleChange}
-                    value={values.title}
-                    error={errors.title}
-                    touched={touched.title}
-                  />
-                </div>
-                <div className={formInputContainerClass}>
-                  <TextInput
-                    name="blurb"
-                    handleChange={handleChange}
-                    value={values.blurb}
-                    error={errors.blurb}
-                    touched={touched.blurb}
-                  />
-                </div>
-                <div className={formInputContainerClass}>
-                  <TextInput
-                    name="description"
-                    handleChange={handleChange}
-                    value={values.description}
-                    error={errors.description}
-                    touched={touched.description}
-                  />
-                </div>
-                <button type="submit" className="btn btn-primary" disabled={submitting}>
-                  Submit
-                </button>
-              </Form>
-            );
-          }}
+          <Form>
+            <CreatePlaceForm />
+            <button type="submit" className="btn btn-primary" disabled={submitting}>
+              Submit
+            </button>
+          </Form>
         </Formik>
       </div>
     </div>

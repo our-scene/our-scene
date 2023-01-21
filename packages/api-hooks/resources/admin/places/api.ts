@@ -1,29 +1,57 @@
 import { useQuery, useMutation, UseQueryOptions } from '@tanstack/react-query';
+import axios from 'axios';
 import { createAxiosClientWithAuth } from '../../../lib/axios';
-import { AdminCreatePlace, AdminGetAllPlaces } from './types';
+import {
+  AdminCreatePlace,
+  AdminDeletePlace,
+  AdminGetPlace,
+  AdminGetPlaces,
+  AdminPlaceImageUploadRequestBody,
+  AdminUpdatePlace,
+} from './types';
 
 const ADMIN_PLACES_ROOT_PATH = '/admin/places';
 
 // GET ALL PLACES
-const generateAdminGetAllPlacesWithAuth = (idToken: string) => {
+const generateAdminGetPlacesWithAuth = (idToken: string) => {
   const client = createAxiosClientWithAuth(idToken);
   const fn = async () => {
-    const { data } = await client.get<AdminGetAllPlaces.Response>(ADMIN_PLACES_ROOT_PATH);
+    const { data } = await client.get<AdminGetPlaces.Response>(ADMIN_PLACES_ROOT_PATH);
     return data;
   };
   return { path: ADMIN_PLACES_ROOT_PATH, fn };
 };
 
-export const useAdminGetAllPlacesQuery = (
+export const useAdminGetPlacesQuery = (
   sessionIdToken: string,
-  options: UseQueryOptions<AdminGetAllPlaces.Response> = {}
+  options: UseQueryOptions<AdminGetPlaces.Response> = {}
 ) => {
-  const { path: queryKey, fn } = generateAdminGetAllPlacesWithAuth(sessionIdToken);
-  return useQuery<AdminGetAllPlaces.Response>([queryKey], fn, options);
+  const { path: queryKey, fn } = generateAdminGetPlacesWithAuth(sessionIdToken);
+  return useQuery<AdminGetPlaces.Response>([queryKey], fn, options);
+};
+
+// GET PLACE
+const generateAdminGetPlace = (idToken: string, { id }: AdminGetPlace.Request['pathParams']) => {
+  const client = createAxiosClientWithAuth(idToken);
+  const getPlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}`;
+  const fn = async () => {
+    const { data } = await client.get<AdminGetPlace.Response>(getPlaceUrl);
+    return data;
+  };
+  return { path: getPlaceUrl, fn };
+};
+
+export const useAdminGetPlaceQuery = (
+  sessionIdToken: string,
+  { id }: AdminGetPlace.Request['pathParams'],
+  options: UseQueryOptions<AdminGetPlace.Response> = {}
+) => {
+  const { path: queryKey, fn } = generateAdminGetPlace(sessionIdToken, { id });
+  return useQuery<AdminGetPlace.Response>([queryKey], fn, options);
 };
 
 // CREATE PLACE
-const generateAdminCreatePlaceWithAuth = (idToken: string) => {
+const generateAdminCreatePlace = (idToken: string) => {
   const client = createAxiosClientWithAuth(idToken);
   const fn = async (body: AdminCreatePlace.Request['body']) => {
     const { data } = await client.post<AdminCreatePlace.Response>(ADMIN_PLACES_ROOT_PATH, body);
@@ -33,9 +61,73 @@ const generateAdminCreatePlaceWithAuth = (idToken: string) => {
 };
 
 export const useAdminCreatePlaceMutation = (sessionIdToken: string) => {
-  const { fn } = generateAdminCreatePlaceWithAuth(sessionIdToken);
-  // TODO: use queryKey to append newly created place to cache array onMutate
+  const { fn } = generateAdminCreatePlace(sessionIdToken);
   return useMutation({
     mutationFn: (body: AdminCreatePlace.Request['body']) => fn(body),
+  });
+};
+
+// UPDATE PLACE
+const generateAdminUpdatePlace = (idToken: string, { id }: AdminUpdatePlace.Request['pathParams']) => {
+  const client = createAxiosClientWithAuth(idToken);
+  const updatePlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}`;
+  const fn = async (body: AdminUpdatePlace.Request['body']) => {
+    const { data } = await client.put<AdminUpdatePlace.Response>(updatePlaceUrl, body);
+    return data;
+  };
+  return { path: updatePlaceUrl, fn };
+};
+
+export const useAdminUpdatePlaceMutation = (idToken: string, { id }: AdminUpdatePlace.Request['pathParams']) => {
+  const { fn } = generateAdminUpdatePlace(idToken, { id });
+  return useMutation({
+    mutationFn: (body: AdminUpdatePlace.Request['body']) => fn(body),
+  });
+};
+
+// NOT IDEAL THAT WE HAVE SEPARATE HOOKS (Update vs UploadMedia)
+// CONSOLIDATE INTO one hook? (make it all formData)
+// UPLOAD MEDIA PLACE
+const generateAdminUploadMediaPlaceMutation = (idToken: string, { id }: AdminUpdatePlace.Request['pathParams']) => {
+  const client = createAxiosClientWithAuth(idToken);
+  const updatePlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}/upload_image`;
+  const fn = async (body: AdminPlaceImageUploadRequestBody) => {
+    const { data, request } = await client.post<AdminUpdatePlace.Response>(updatePlaceUrl, body, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    console.log({ request });
+    return data;
+  };
+  return { path: updatePlaceUrl, fn };
+};
+
+export const useAdminUploadMediaPlaceMutation = (idToken: string, { id }: AdminUpdatePlace.Request['pathParams']) => {
+  const { fn } = generateAdminUploadMediaPlaceMutation(idToken, { id });
+  return useMutation({
+    mutationFn: (body: AdminPlaceImageUploadRequestBody) => fn(body),
+  });
+};
+
+// DELETE PLACE
+const generateAdminDeletePlace = (idToken: string, { id }: AdminDeletePlace.Request['pathParams']) => {
+  const client = createAxiosClientWithAuth(idToken);
+  const deletePlaceUrl = `${ADMIN_PLACES_ROOT_PATH}/${id}`;
+  const mutationFn = async () => {
+    const { data } = await client.delete<AdminGetPlace.Response>(deletePlaceUrl);
+    return data;
+  };
+  return { path: deletePlaceUrl, mutationFn };
+};
+
+export const useAdminDeletePlaceMutation = (
+  sessionIdToken: string,
+  { id }: AdminGetPlace.Request['pathParams'],
+  options: UseQueryOptions<AdminGetPlace.Response> = {}
+) => {
+  const { mutationFn } = generateAdminDeletePlace(sessionIdToken, { id });
+  return useMutation({
+    mutationFn,
   });
 };

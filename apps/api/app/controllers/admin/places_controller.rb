@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 module Admin
+  # admin:: places controller:w
   class PlacesController < ApplicationController
-    before_action :set_place, only: %i[show update destroy]
+    before_action :set_place, only: %i[show update destroy upload_image]
     before_action :set_current_user, only: %i[create]
 
     # GET /admin/places
@@ -34,6 +37,11 @@ module Admin
       end
     end
 
+    def upload_image
+      @place.primary_image.attach(update_params[:primary_image])
+      render json: @place
+    end
+
     # DELETE /admin/places/1
     def destroy
       @place.destroy
@@ -48,7 +56,11 @@ module Admin
 
     # Only allow a list of trusted parameters through.
     def place_params
-      params.require(:place).permit(:title, :description, :blurb, :status)
+      params.require(:place).permit(:title, :description, :blurb, :status, :primary_image)
+    end
+
+    def update_params
+      params.require(:place).permit(:primary_image)
     end
 
     def set_current_user
