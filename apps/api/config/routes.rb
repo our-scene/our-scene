@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :places, on: :collection
+    resources :places do
+      post 'upload_image', on: :member
+    end
     resources :users do
       collection do
         post '/', to: 'users#create_or_find_by_email'

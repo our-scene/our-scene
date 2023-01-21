@@ -8,13 +8,12 @@ body {
   margin: 0;
 }
 
-
 html,
 body,
 #__next,
-body>div:first-child,
+body > div:first-child,
 div#__next,
-div#__next>div {
+div#__next > div {
   min-height: 100vh;
 }
 
@@ -26,8 +25,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-.table :where(thead, tfoot) :where(th) {
-  @apply bg-primary;
-}
-

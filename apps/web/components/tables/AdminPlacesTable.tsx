@@ -2,11 +2,11 @@ import { Place } from '@our-scene/api-hooks/resources/admin/places';
 import Link from 'next/link';
 
 export const AdminPlacesTable = ({ places }: { places: Place[] }) => {
+  // TODO: figure out how to set this at the theme level
   // TODO: make table sortable
-  // TODO: paginate
   return (
     <div className="overflow-x-auto">
-      <table className="table table-normal w-full">
+      <table className="table w-full table-normal">
         <thead>
           <tr>
             <th>Id</th>
@@ -18,7 +18,7 @@ export const AdminPlacesTable = ({ places }: { places: Place[] }) => {
           </tr>
         </thead>
         <tbody className="text-primary">
-          {places.map((place) => (
+          {places?.map((place) => (
             <tr key={place.id}>
               <td>{place.id}</td>
               <td>{place.title}</td>

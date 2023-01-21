@@ -2,6 +2,7 @@ import { AnyObject } from './generic_types';
 import { camelToSnakeCase, snakeToCamelCase } from './sting_helpers';
 
 export const camelToSnakeCaseObject = (object: any): [] | AnyObject => {
+  if (object instanceof FormData) return object;
   const snakeCaseObject: AnyObject = {};
   if (Array.isArray(object)) {
     return object.map(camelToSnakeCaseObject);
@@ -17,6 +18,7 @@ export const camelToSnakeCaseObject = (object: any): [] | AnyObject => {
 };
 
 export const snakeToCamelCaseObject = (object: any): [] | AnyObject => {
+  if (object instanceof FormData) return object;
   const camelCaseObject: AnyObject = {};
   if (Array.isArray(object)) {
     return object.map(snakeToCamelCaseObject);
