@@ -1,11 +1,9 @@
 import axios, { AxiosRequestTransformer, AxiosResponseTransformer } from 'axios';
+import { TJsonApiBody } from 'jsona/lib/JsonaTypes';
+import { AnyObject } from './generic_types';
+import { jsonApiFormatter } from './json-api';
 import { camelToSnakeCaseObject, snakeToCamelCaseObject } from './object_helpers';
 
-type AxiosClientOptions = {
-  headers?: {
-    'Content-Type': string;
-  };
-};
 export const createAxiosClientWithAuth = (idToken: string, options = {}) => {
   const { headers }: { headers?: Object } = options;
   let defaultHeaders = {
@@ -21,17 +19,19 @@ export const createAxiosClientWithAuth = (idToken: string, options = {}) => {
 
   const client = axios.create({
     baseURL: 'http://localhost:3000',
+
     headers: defaultHeaders,
     transformRequest: [handleTransformAxiosRequest, ...defaultRequestTransformers()],
-    transformResponse: [...defaultResposneTransformers(), handleTransformAxiosResponse],
+    transformResponse: [
+      ...defaultResposneTransformers(),
+      handeDeserializeJsonApiResponse,
+      handleTransformAxiosResponse,
+    ],
   });
   return client;
 };
-
 // PRIVATE FUNCTIONS ONLY USED TO CREATE OUR DANK AXIOS CLIENT
 // AXIOS REQUEST / REPONSE TRANFORMERS ****************
-// this is where we'll serialize our data for rails
-// mainly changing keys from camelCase to snake_case
 const handleTransformAxiosRequest: AxiosRequestTransformer = (data) => {
   const transformedData = camelToSnakeCaseObject(data);
   return transformedData;
@@ -39,11 +39,27 @@ const handleTransformAxiosRequest: AxiosRequestTransformer = (data) => {
 
 // // This is where we're 'deserialize' our rails data
 // // For now, let's just pass the response through.
-// mainly changing keys from snake_case to camelCase
 const handleTransformAxiosResponse: AxiosResponseTransformer = (data) => {
   if (typeof data === 'string') return data;
   const transformedData = snakeToCamelCaseObject(data);
   return transformedData;
+};
+
+const handeDeserializeJsonApiResponse: AxiosResponseTransformer = (
+  data: TJsonApiBody & { meta?: AnyObject; errors?: AnyObject }
+) => {
+  if (data === null || data.data === null) return null;
+  if (data.errors) return data;
+
+  const { meta } = data;
+  const deserializedData = jsonApiFormatter.deserialize(data);
+  if (Array.isArray(deserializedData)) {
+    return deserializedData;
+  }
+  return {
+    ...(meta ? { meta } : {}),
+    ...deserializedData,
+  };
 };
 
 // AXIOS CLIENT CREATION HELPERS ****************
