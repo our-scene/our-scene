@@ -96,7 +96,6 @@ const generateAdminUploadMediaPlaceMutation = (idToken: string, { id }: AdminUpd
         'Content-Type': 'multipart/form-data',
       },
     });
-    console.log({ request });
     return data;
   };
   return { path: updatePlaceUrl, fn };

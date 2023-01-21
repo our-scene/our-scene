@@ -7,7 +7,7 @@ module Admin
     attributes :title, :blurb, :description
 
     attribute :user do |object|
-      Admin::UserSerializer.new(object.user).serializable_hash
+      Admin::UserSerializer.new(object.user)
     end
 
     attribute :primary_image do |object|

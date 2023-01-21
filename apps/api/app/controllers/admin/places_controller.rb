@@ -22,7 +22,7 @@ module Admin
       @place = Place.new(place_params.merge(user_id: @current_user.id))
 
       if @place.save
-        render json: @place, status: :created, location: @place
+        render json: Admin::PlaceSerializer.new(@place, include: [:user]), status: :created, location: @place
       else
         render json: @place.errors, status: :unprocessable_entity
       end
@@ -31,7 +31,9 @@ module Admin
     # PATCH/PUT /admin/places/1
     def update
       if @place.update(place_params)
-        render json: @place
+        render json: Admin::PlaceSerializer.new(@place, include: {
+                                                  user: { only: %i[email name] }
+                                                })
       else
         render json: @place.errors, status: :unprocessable_entity
       end
@@ -39,7 +41,9 @@ module Admin
 
     def upload_image
       @place.primary_image.attach(update_params[:primary_image])
-      render json: @place
+      render json: Admin::PlaceSerializer.new(@place, include: {
+                                                user: { only: %i[email name] }
+                                              })
     end
 
     # DELETE /admin/places/1

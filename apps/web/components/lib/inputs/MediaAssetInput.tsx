@@ -55,6 +55,7 @@ export const MediaAssetInput = ({ fieldName }: MediaAssetInputProps) => {
     const attachment = new FormData();
     attachment.append(`place[primary_image]`, fileToBeUploaded);
     const response = await adminUploadMediaPlaceMutation.mutateAsync(attachment);
+    console.log('response: ', response);
   };
 
   let filePreviewUrl = '';
