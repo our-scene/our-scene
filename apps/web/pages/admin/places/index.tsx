@@ -2,18 +2,24 @@ import { useAdminGetAllPlacesQuery } from '@our-scene/api-hooks/resources/admin/
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { AdminLayout } from '../../../components/layout/AdminLayout';
+import { AdminPlacesTable } from '../../../components/tables/AdminPlacesTable';
 
 const AdminPlaces = () => {
   const { data: session } = useSession();
   const adminGetAllPlacesQuery = useAdminGetAllPlacesQuery(session?.idToken as string, { enabled: Boolean(session) });
-  console.log({ adminGetAllPlacesQuery });
+  const { data: places, isLoading, isError } = adminGetAllPlacesQuery;
+
+  if (isError) return <div>error loading places</div>;
   return (
     <AdminLayout>
       <div className="flex flex-col w-3/4">
-        <div className="">Admin Places</div>
-        <Link href="/admin/places/new">
-          <div className="btn btn-primary w-16">Add Place</div>
-        </Link>
+        <div className="flex justify-between w-full mt-4">
+          <div className="text-2xl text-primary">Admin Places</div>
+          <Link href="/admin/places/new">
+            <div className="w-16 text-xs btn btn-primary">Add Place</div>
+          </Link>
+        </div>
+        <div className="mt-4">{isLoading ? <div>loading...</div> : <AdminPlacesTable places={places} />}</div>
       </div>
     </AdminLayout>
   );
