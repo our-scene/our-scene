@@ -31,34 +31,10 @@ export const EventsForm = ({ handleSubmit }: EventsFormProps) => {
         console.log('Errors here', errors);
         return (
           <Form>
-            <Field
-              component={TextInput}
-              name="title"
-              handleChange={handleChange}
-              value={values.title}
-              error={errors.title}
-            />
-            <Field
-              component={TextInput}
-              name="blurb"
-              handleChange={handleChange}
-              value={values.blurb}
-              error={errors.blurb}
-            />
-            <Field
-              component={TextInput}
-              name="address"
-              handleChange={handleChange}
-              value={values.address}
-              error={errors.address}
-            />
-            <Field
-              component={TextInput}
-              name="description"
-              handleChange={handleChange}
-              value={values.description}
-              error={errors.description}
-            />
+            <Field component={TextInput} name="title" />
+            <Field component={TextInput} name="blurb" />
+            <Field component={TextInput} name="address" />
+            <Field component={TextInput} name="description" />
             <DateInput
               name="start"
               handleChange={handleChange}
