@@ -6,11 +6,11 @@ type EventCardProps = {
 };
 
 export const EventCard = ({ event }: EventCardProps) => {
-  const { id, title, blurb, address, start, end, user } = event;
-  let startDate = new Date(start);
-  let endDate = new Date(end);
-  let formattedStartDate = startDate.toLocaleString();
-  let formattedEndDate = endDate.toLocaleString();
+  const { title, blurb, address, start, end } = event;
+  const startDate = new Date(start);
+  const endDate = new Date(end);
+  const formattedStartDate = startDate.toLocaleString();
+  const formattedEndDate = endDate.toLocaleString();
 
   return (
     <div className="shadow-xl card w-96 bg-base-100">

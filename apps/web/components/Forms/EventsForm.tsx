@@ -1,4 +1,4 @@
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { EventValidationSchema } from './EventValidation';
 import { TextInput } from '../lib/inputs/TextInput';
 import { DateInput } from '../lib/inputs/DateInput';
@@ -31,15 +31,10 @@ export const EventsForm = ({ handleSubmit }: EventsFormProps) => {
         console.log('Errors here', errors);
         return (
           <Form>
-            <TextInput name="title" handleChange={handleChange} value={values.title} error={errors.title} />
-            <TextInput name="summary" handleChange={handleChange} value={values.blurb} error={errors.blurb} />
-            <TextInput name="location" handleChange={handleChange} value={values.address} error={errors.address} />
-            <TextInput
-              name="description"
-              handleChange={handleChange}
-              value={values.description}
-              error={errors.description}
-            />
+            <Field component={TextInput} name="title" />
+            <Field component={TextInput} name="blurb" />
+            <Field component={TextInput} name="address" />
+            <Field component={TextInput} name="description" />
             <DateInput
               name="start"
               handleChange={handleChange}
