@@ -15,12 +15,14 @@ export const EventCardPreview = ({ event, handleSelect, isFocused }: EventCardPr
   const formattedStartDate = startDate.toLocaleString();
   const formattedEndDate = endDate.toLocaleString();
 
-  const focusedClasses = 'shadow-xl card card-compact card-side bg-slate-100';
-  const nonFocusedClasses = 'shadow-xl card card-compact card-side bg-base-100';
+  const cardClasses = 'shadow-xl card card-compact card-side';
 
   return (
     <div>
-      <div className={isFocused ? focusedClasses : nonFocusedClasses} onClick={() => handleSelect(event)}>
+      <div
+        className={`${cardClasses} ${isFocused ? 'bg-slate-100' : 'bg-base-100'}`}
+        onClick={() => handleSelect(event)}
+      >
         <figure>
           <Image alt="Placeholder" src="/assets/defaults/Default_landscape.svg" width={25} height={25} />
         </figure>

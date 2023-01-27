@@ -8,7 +8,7 @@ interface UpcomingEventProps {
 }
 
 export const UpcomingEvents = ({ data }: UpcomingEventProps) => {
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(data[0]);
 
   const handleEventSelect = (event: Event) => {
     setSelectedEvent(event);
