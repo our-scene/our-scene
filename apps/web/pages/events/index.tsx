@@ -5,11 +5,10 @@ import { UpcomingEvents } from '../../components/events/UpcomingEventsView';
 import { useState } from 'react';
 import { Modal } from '../../components/lib/Modal';
 import { BaseLayout } from '../../components/layout/BaseLayout';
-// import events from "../api/fakeData/indexEvents.json";
 
 export default function Events() {
   const { session } = useUserAuthContext();
-  const { data = [] } = useGetUpcomingEventsQuery(session?.idToken as string, {
+  const query = useGetUpcomingEventsQuery(session?.idToken as string, {
     enabled: Boolean(session),
   });
   const [isQuickAddModalOpen, setQuickAddModalOpen] = useState(false);
@@ -31,7 +30,8 @@ export default function Events() {
       <button className="w-1/3 m-5 btn btn-ghost modal-button" onClick={() => setQuickAddModalOpen(true)}>
         ADD TO-DO
       </button>
-      <UpcomingEvents data={data} />
+      {query.isLoading && <button className="flex-grow btn btn-lg loading">loading</button>}
+      {query.isSuccess && <UpcomingEvents data={query.data} />}
       <Modal isOpen={isQuickAddModalOpen} close={handleModalClose}>
         {/* TODO: move this into /admin/events/new */}
         {/* TODO: this is the 'basic user' all events view */}
