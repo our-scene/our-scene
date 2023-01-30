@@ -16,10 +16,10 @@ export const UpcomingEvents = ({ data }: UpcomingEventProps) => {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-4 py-10">
-      <div className="px-2 space-y-2">
+    <div className="flex w-full py-10">
+      <div className="w-1/2 px-2 space-y-2 overflow-auto card place-items-center">
         {data.map((event: Event) => (
-          <div key={event.id}>
+          <div className="w-full" key={event.id}>
             <EventCardPreview
               event={event}
               handleSelect={handleEventSelect}
@@ -28,6 +28,7 @@ export const UpcomingEvents = ({ data }: UpcomingEventProps) => {
           </div>
         ))}
       </div>
+      <div className="divider divider-horizontal" />
       {selectedEvent && <EventCardDetailed event={selectedEvent} />}
     </div>
   );

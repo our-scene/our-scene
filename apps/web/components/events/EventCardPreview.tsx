@@ -15,7 +15,7 @@ export const EventCardPreview = ({ event, handleSelect, isFocused }: EventCardPr
   const formattedStartDate = startDate.toLocaleString();
   const formattedEndDate = endDate.toLocaleString();
 
-  const cardClasses = 'shadow-xl card card-compact card-side';
+  const cardClasses = 'group/event hover:bg-slate-100 shadow-xl card card-compact card-side';
 
   return (
     <div>

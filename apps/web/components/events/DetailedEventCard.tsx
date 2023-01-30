@@ -14,8 +14,8 @@ export const EventCardDetailed = ({ event }: DetailedEventCardProps) => {
   const formattedEndDate = endDate.toLocaleString();
 
   return (
-    <div className="flex justify-center">
-      <div className="shadow-xl card w-96 bg-base-100 shrink">
+    <div className="flex-grow w-1/2 card place-items-center">
+      <div className="shadow-xl card w-96 bg-base-100">
         <figure>
           <Image alt="Placeholder" src="/assets/defaults/Default_landscape.svg" width={300} height={300} />
         </figure>
