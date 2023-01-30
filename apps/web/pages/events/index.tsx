@@ -31,7 +31,7 @@ export default function Events() {
         ADD TO-DO
       </button>
       {query.isLoading && <button className="flex-grow btn btn-lg loading">loading</button>}
-      {query.isSuccess && <UpcomingEvents data={query.data} />}
+      {query.isSuccess && query.data && <UpcomingEvents data={query.data} />}
       <Modal isOpen={isQuickAddModalOpen} close={handleModalClose}>
         {/* TODO: move this into /admin/events/new */}
         {/* TODO: this is the 'basic user' all events view */}

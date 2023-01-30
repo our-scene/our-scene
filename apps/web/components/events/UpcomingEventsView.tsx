@@ -8,6 +8,7 @@ interface UpcomingEventProps {
 }
 
 export const UpcomingEvents = ({ data }: UpcomingEventProps) => {
+  console.log('data: ', data);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(data[0]);
 
   const handleEventSelect = (event: Event) => {
@@ -22,12 +23,12 @@ export const UpcomingEvents = ({ data }: UpcomingEventProps) => {
             <EventCardPreview
               event={event}
               handleSelect={handleEventSelect}
-              isFocused={event.id === selectedEvent.id}
+              isFocused={selectedEvent !== null && event.id === selectedEvent.id}
             />
           </div>
         ))}
       </div>
-      <EventCardDetailed event={selectedEvent} />
+      {selectedEvent && <EventCardDetailed event={selectedEvent} />}
     </div>
   );
 };
